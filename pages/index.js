@@ -38,7 +38,7 @@ export default function Home() {
               type: "spring",
               stiffness: 440,
               damping: 10
-            }} className='laptop:text-3xl mobile:text-2xl text-red-200 font-fav mobile:ml-0 laptop:ml-1 text-left font-thin'>MERN Stack Developer</motion.h1>
+            }} className='laptop:text-3xl mobile:text-xl text-red-200 font-fav mobile:ml-0 laptop:ml-1 text-left font-thin'>MERN Stack Developer</motion.h1>
           <motion.button
             whileHover={{
               scale: 1.2,
