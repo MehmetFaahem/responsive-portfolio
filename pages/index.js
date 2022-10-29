@@ -2,14 +2,19 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { jsPDF } from "jspdf";
 import { motion } from 'framer-motion'
+import React, { useState } from 'react'
 
 export default function Home() {
 
+  const [saving, setSaving] = useState(false)
+
   function saveResume() {
 
+    setSaving(true)
     var doc = new jsPDF('portrait', 'px', 'a4', false)
     doc.addImage('https://i.ibb.co/YTyMhCF/resume.png', 'PNG', 0, 0, 417, 653)
     doc.save('resume.pdf')
+    setSaving(false)
 
   }
 
@@ -39,16 +44,32 @@ export default function Home() {
               stiffness: 440,
               damping: 10
             }} className='laptop:text-3xl mobile:text-xl text-red-200 font-fav mobile:ml-4 laptop:ml-1 text-left font-thin'>MERN Stack Developer</motion.h1>
-          <motion.button
-            whileHover={{
-              scale: 1.2,
-              translateX: '30px'
-            }}
-            whileTap={{
-              scale: 0.8,
-              borderRadius: "100%"
-            }}
-            onClick={saveResume} className='p-4 rounded-xl mt-8 bg-white mobile:text-xl laptop:text-2xl font-bold' >Download My Resume</motion.button>
+          {
+            !saving ? <motion.button
+              whileHover={{
+                scale: 1.2,
+                translateX: '30px'
+              }}
+              whileTap={{
+                scale: 0.8,
+                borderRadius: "100%"
+              }}
+              onClick={saveResume} className='p-4 rounded-xl mt-8 bg-white mobile:text-xl laptop:text-2xl font-bold' >
+              Download My Resume
+            </motion.button> :
+              <motion.button
+                whileHover={{
+                  scale: 1.2,
+                  translateX: '30px'
+                }}
+                whileTap={{
+                  scale: 0.8,
+                  borderRadius: "100%"
+                }}
+                onClick={saveResume} className='p-4 rounded-xl mt-8 bg-white mobile:text-xl laptop:text-2xl font-bold' >
+                Downloading
+              </motion.button>
+          }
 
         </div>
         <motion.div
