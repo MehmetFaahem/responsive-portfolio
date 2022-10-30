@@ -97,7 +97,6 @@ export default function Home() {
         <motion.div
           className='bg-slate-200 overflow-hidden relative place-items-center justify-between flex flex-row rounded-2xl'>
           <motion.div
-
             initial={{ translateX: '-1200px' }}
             animate={{ translateX: '0px' }}
             transition={{ duration: 2 }}
@@ -152,6 +151,14 @@ export default function Home() {
           <h1 className='mobile:text-xl laptop:text-2xl text-black flex font-bold mobile:p-5 laptop:p-10 z-10'><span className='mobile:hidden laptop:flex mr-2'>Level:</span>Expert</h1>
         </div>
       </motion.div>
+      <div className='p-10'>
+        <h1 className='text-center font-bold mobile:text-4xl laptop:text-7xl text-white mb-12'>Introduction</h1>
+        <div id='introduction' className='bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-2xl p-5'>
+          <h1 className='text-white font-bold laptop:text-3xl mobile:text-lg text-center'>
+            I am 17 years old. I have about 1 year experience in web development. I am constantly trying to learn deeper topics. Web development seems like an addiction to me now. Currently I am not working for any company but I am doing some local project.
+          </h1>
+        </div>
+      </div>
 
     </div>
   )
