@@ -18,7 +18,7 @@ body {
 }
 
 .light {
-  background-image: linear-gradient(to right top, #0d005a, #500075, #89008c, #c4009e, #ff00aa);
+  background-image: linear-gradient(to right top, #000000, #150810, #1c101e, #1c1730, #0a2142);
 }
 
 a {
@@ -30,7 +30,14 @@ a {
   animation: gloring 5s cubic-bezier(0, 0, 0.5, 5) infinite;
 }
 
-#movingItem {}
+#movingItem {
+  transition-duration: 1;
+  transition-timing-function: ease-out;
+}
+
+#allButtons:hover~#movingItem {
+  transform: scale(0.3);
+}
 
 @keyframes gloring {
   0% {
