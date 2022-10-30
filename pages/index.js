@@ -1,12 +1,16 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import { jsPDF } from "jspdf";
-import { motion } from 'framer-motion'
-import React, { useState } from 'react'
+import { motion, useViewportScroll, useTransform } from 'framer-motion'
+import React, { useState, useRef } from 'react'
 
 export default function Home() {
 
   const [saving, setSaving] = useState(false)
+
+
+  const { scrollYProgress } = useViewportScroll()
+  const scale = useTransform(scrollYProgress, [0, 1], [0.5, 1.005]);
 
   function saveResume() {
 
@@ -54,7 +58,7 @@ export default function Home() {
                 scale: 0.8,
                 borderRadius: "100%"
               }}
-              onClick={saveResume} className='p-4 rounded-xl mt-8 bg-white mobile:text-xl laptop:text-2xl font-bold' >
+              onClick={saveResume} className='p-4 rounded-xl mt-8 bg-white mobile:text-xl text-black laptop:text-2xl font-bold' >
               Download My Resume
             </motion.button> :
               <motion.button
@@ -83,9 +87,11 @@ export default function Home() {
           <Image src='https://i.ibb.co/4PbPVhF/Covdffer.png' height='600' width='600' />
         </motion.div>
       </div>
-      <div className='p-10'>
+      <motion.div
+        className='p-10'>
         <h1 className='text-center font-bold mobile:text-4xl laptop:text-7xl text-white mb-12'>My Skills</h1>
-        <div className='bg-slate-200 overflow-hidden relative place-items-center justify-between flex flex-row rounded-2xl'>
+        <motion.div
+          className='bg-slate-200 overflow-hidden relative place-items-center justify-between flex flex-row rounded-2xl'>
           <motion.div
 
             initial={{ translateX: '-1200px' }}
@@ -95,8 +101,9 @@ export default function Home() {
             className='h-full w-10/12 rounded-2xl absolute z-0 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500' />
           <h1 className='mobile:text-2xl laptop:text-4xl text-white font-bold mobile:p-5 laptop:p-10 z-10'>Next JS</h1>
           <h1 className='mobile:text-xl laptop:text-2xl text-black flex font-bold mobile:p-5 laptop:p-10 z-10'><span className='mobile:hidden laptop:flex mr-2'>Level:</span>Expert</h1>
-        </div>
-        <div className='bg-slate-200 mt-6 overflow-hidden relative place-items-center justify-between flex flex-row rounded-2xl'>
+        </motion.div>
+        <motion.div
+          className='bg-slate-200 mt-6 overflow-hidden relative place-items-center justify-between flex flex-row rounded-2xl'>
           <motion.div
 
             initial={{ translateX: '-1200px' }}
@@ -106,7 +113,7 @@ export default function Home() {
             className='h-full w-3/4 rounded-2xl absolute z-0 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500' />
           <h1 className='mobile:text-2xl laptop:text-4xl text-white font-bold mobile:p-5 laptop:p-10 z-10'>React Native</h1>
           <h1 className='mobile:text-xl laptop:text-2xl text-black flex font-bold mobile:p-5 laptop:p-10 z-10'><span className='mobile:hidden laptop:flex mr-2'>Level:</span>Intermediate</h1>
-        </div>
+        </motion.div>
         <div className='bg-slate-200 mt-6 overflow-hidden relative place-items-center justify-between flex flex-row rounded-2xl'>
           <motion.div
 
@@ -140,7 +147,7 @@ export default function Home() {
           <h1 className='mobile:text-2xl laptop:text-4xl text-white font-bold mobile:p-5 laptop:p-10 z-10'>MongoBD</h1>
           <h1 className='mobile:text-xl laptop:text-2xl text-black flex font-bold mobile:p-5 laptop:p-10 z-10'><span className='mobile:hidden laptop:flex mr-2'>Level:</span>Expert</h1>
         </div>
-      </div>
+      </motion.div>
 
     </div>
   )
