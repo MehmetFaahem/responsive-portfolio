@@ -39,7 +39,8 @@ export default function Home() {
               stiffness: 140,
               damping: 10
             }}
-            className='mobile:text-4xl laptop:text-8xl font-fav mobile:text-center laptop:text-left text-white font-bold'>Faahem Bro</motion.h1>
+            id='animate-ping'
+            className='mobile:text-4xl laptop:text-8xl font-fav mobile:text-center laptop:text-left font-bold'>Faahem Bro</motion.h1>
           <motion.h1
             initial={{ scale: 0, translateX: '-800px' }}
             animate={{ scale: 1, translateX: '0px' }}
@@ -77,6 +78,7 @@ export default function Home() {
 
         </div>
         <motion.div
+          className='relative'
           initial={{ scale: 0 }}
           animate={{ rotate: 360, scale: 1 }}
           transition={{
@@ -84,7 +86,9 @@ export default function Home() {
             stiffness: 100,
             damping: 15
           }}>
-          <Image src='https://i.ibb.co/4PbPVhF/Covdffer.png' height='600' width='600' />
+          <div className='z-30' id='imageOfMe'>
+            <Image src='https://i.ibb.co/4PbPVhF/Covdffer.png' height='600' width='600' />
+          </div>
         </motion.div>
       </div>
       <motion.div
