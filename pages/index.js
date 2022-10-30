@@ -2,12 +2,22 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { jsPDF } from "jspdf";
 import { motion, useViewportScroll, useTransform } from 'framer-motion'
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 
 export default function Home() {
 
   const [saving, setSaving] = useState(false)
 
+  useEffect(() => {
+    const mover = document.getElementById("movingItem")
+
+    document.onmousemove = function (e) {
+      mover.style.left = (e.pageX - 500) + 'px'
+      mover.style.top = (e.pageY - 500) + 'px'
+      mover.style.display = 'block'
+      mover.style.opacity = 0.5
+    }
+  }, [])
 
   const { scrollYProgress } = useViewportScroll()
   const scale = useTransform(scrollYProgress, [0, 1], [0.5, 1.005]);
@@ -29,8 +39,14 @@ export default function Home() {
         <meta name="description" content="MERN Stack Developer" />
         <link rel="icon" href="https://i.ibb.co/2hVHJFt/Covdffer.png" />
       </Head>
+
+      <div id='movingItem' className='w-96 z-0 h-96 hidden absolute bg-pink-900 rounded-full' />
       <div className='flex mobile:flex-col-reverse laptop:flex-row justify-between place-content-center place-items-center p-16'>
-        <div>
+        <motion.div
+          initial={{ opacity: 0.1 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: false }}
+        >
           <motion.h1
             initial={{ scale: 0, translateX: '-800px' }}
             animate={{ scale: 1, translateX: '0px' }}
@@ -59,7 +75,8 @@ export default function Home() {
                 scale: 0.8,
                 borderRadius: "100%"
               }}
-              onClick={saveResume} className='p-4 rounded-xl mt-8 bg-white mobile:text-xl text-black laptop:text-2xl font-bold' >
+              id='allButtons'
+              onClick={saveResume} className='p-4 z-10 rounded-xl mt-8 bg-white mobile:text-xl text-black laptop:text-2xl font-bold' >
               Download My Resume
             </motion.button> :
               <motion.button
@@ -76,7 +93,7 @@ export default function Home() {
               </motion.button>
           }
 
-        </div>
+        </motion.div>
         <motion.div
           className='relative'
           initial={{ scale: 0 }}
@@ -95,6 +112,9 @@ export default function Home() {
         className='p-10'>
         <h1 className='text-center font-bold mobile:text-4xl laptop:text-7xl text-white mb-12'>My Skills</h1>
         <motion.div
+          initial={{ opacity: 0.1 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: false }}
           className='bg-slate-200 overflow-hidden relative place-items-center justify-between flex flex-row rounded-2xl'>
           <motion.div
             initial={{ translateX: '-1200px' }}
@@ -106,6 +126,9 @@ export default function Home() {
           <h1 className='mobile:text-xl laptop:text-2xl text-black flex font-bold mobile:p-5 laptop:p-10 z-10'><span className='mobile:hidden laptop:flex mr-2'>Level:</span>Expert</h1>
         </motion.div>
         <motion.div
+          initial={{ opacity: 0.1 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: false }}
           className='bg-slate-200 mt-6 overflow-hidden relative place-items-center justify-between flex flex-row rounded-2xl'>
           <motion.div
 
@@ -117,7 +140,10 @@ export default function Home() {
           <h1 className='mobile:text-2xl laptop:text-4xl text-white font-bold mobile:p-5 laptop:p-10 z-10'>React Native</h1>
           <h1 className='mobile:text-xl laptop:text-2xl text-black flex font-bold mobile:p-5 laptop:p-10 z-10'><span className='mobile:hidden laptop:flex mr-2'>Level:</span>Intermediate</h1>
         </motion.div>
-        <div className='bg-slate-200 mt-6 overflow-hidden relative place-items-center justify-between flex flex-row rounded-2xl'>
+        <motion.div
+          initial={{ opacity: 0.1 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: false }} className='bg-slate-200 mt-6 overflow-hidden relative place-items-center justify-between flex flex-row rounded-2xl'>
           <motion.div
 
             initial={{ translateX: '-1200px' }}
@@ -127,8 +153,11 @@ export default function Home() {
             className='h-full w-2/3 rounded-2xl absolute z-0 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500' />
           <h1 className='mobile:text-2xl laptop:text-4xl text-white font-bold mobile:p-5 laptop:p-10 z-10'>Node JS</h1>
           <h1 className='mobile:text-xl laptop:text-2xl text-black flex font-bold mobile:p-5 laptop:p-10 z-10'><span className='mobile:hidden laptop:flex mr-2'>Level:</span>Intermediate</h1>
-        </div>
-        <div className='bg-slate-200 mt-6 overflow-hidden relative place-items-center justify-between flex flex-row rounded-2xl'>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0.1 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: false }} className='bg-slate-200 mt-6 overflow-hidden relative place-items-center justify-between flex flex-row rounded-2xl'>
           <motion.div
 
             initial={{ translateX: '-1200px' }}
@@ -138,8 +167,12 @@ export default function Home() {
             className='h-full w-2/5 rounded-2xl absolute z-0 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500' />
           <h1 className='mobile:text-2xl laptop:text-4xl text-white font-bold mobile:p-5 laptop:p-10 z-10'>Redux</h1>
           <h1 className='mobile:text-xl laptop:text-2xl text-black flex font-bold mobile:p-5 laptop:p-10 z-10'><span className='mobile:hidden laptop:flex mr-2'>Level:</span>Extending</h1>
-        </div>
-        <div className='bg-slate-200 mt-6 overflow-hidden relative place-items-center justify-between flex flex-row rounded-2xl'>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0.1 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: false }}
+          className='bg-slate-200 mt-6 overflow-hidden relative place-items-center justify-between flex flex-row rounded-2xl'>
           <motion.div
 
             initial={{ translateX: '-1200px' }}
@@ -149,15 +182,20 @@ export default function Home() {
             className='h-full w-10/12 rounded-2xl absolute z-0 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500' />
           <h1 className='mobile:text-2xl laptop:text-4xl text-white font-bold mobile:p-5 laptop:p-10 z-10'>MongoBD</h1>
           <h1 className='mobile:text-xl laptop:text-2xl text-black flex font-bold mobile:p-5 laptop:p-10 z-10'><span className='mobile:hidden laptop:flex mr-2'>Level:</span>Expert</h1>
-        </div>
+        </motion.div>
       </motion.div>
       <div className='p-10'>
         <h1 className='text-center font-bold mobile:text-4xl laptop:text-7xl text-white mb-12'>Introduction</h1>
-        <div id='introduction' className='bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-2xl p-5'>
+        <motion.div
+          initial={{ opacity: 0.1 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: false }}
+          id='introduction' className='bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-2xl p-5'>
           <h1 className='text-white font-bold laptop:text-3xl mobile:text-lg text-center'>
             I am 17 years old. I have about 1 year experience in web development. I am constantly trying to learn deeper topics. Web development seems like an addiction to me now. Currently I am not working for any company but I am doing some local project.
           </h1>
-        </div>
+          <div id='movingItem2' className='w-2/3 z-0 h-96 hidden absolute bg-pink-900 rounded-full' />
+        </motion.div>
       </div>
 
     </div>

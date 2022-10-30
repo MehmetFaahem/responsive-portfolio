@@ -10,6 +10,11 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  cursor: url('../como/cures.png'), auto;
+}
+
+#allButtons {
+  cursor: url('../como/cures.png'), auto;
 }
 
 .light {
@@ -22,8 +27,10 @@ a {
 }
 
 #introduction {
-  animation: gloring 5s cubic-bezier(0, 0, 0.2, 1) infinite;
+  animation: gloring 5s cubic-bezier(0, 0, 0.5, 5) infinite;
 }
+
+#movingItem {}
 
 @keyframes gloring {
   0% {
@@ -86,6 +93,10 @@ a {
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
+  }
+
+  .light {
+    background-image: linear-gradient(to right top, #000000, #150810, #1c101e, #1c1730, #0a2142);
   }
 
   body {
