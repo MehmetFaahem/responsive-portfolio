@@ -70,7 +70,7 @@ export default function Home() {
       <div>
         <svg id='navIcon' className='fill-white laptop:hidden mobile:flex p-2 place-self-end' width='50' height='50' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z" /></svg>
       </div>
-      <div id='NavheaderForphone' className='bg-black/60 rounded-2xl w-72 place-self-center z-50 flex-col place-content-center place-items-center justify-between static top-20'>
+      <div id='NavheaderForphone' className='bg-pink-600/60 rounded-2xl w-72 place-self-center z-50 flex-col place-content-center place-items-center justify-between static top-20'>
         <div className='mr-6 space-x-3 flex flex-col place-content-center place-items-center'>
           <Link href='#introduction'>
             <h1 className='font-bold p-4 rounded-xl hover:bg-slate-500/50 text-red-100'>Introduction</h1>
