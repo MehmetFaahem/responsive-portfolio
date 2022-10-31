@@ -9,7 +9,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'fav': ['Poppins', 'sans-serif']
+        'fav': ['Poppins', 'sans-serif'],
+        'fav2': ['Secular One', 'sans-serif']
       },
       screens: {
         'mobile': '280px',

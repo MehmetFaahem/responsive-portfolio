@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import { jsPDF } from "jspdf";
+import Link from 'next/link'
 import { motion, useViewportScroll, useTransform } from 'framer-motion'
 import React, { useState, useRef, useEffect } from 'react'
 
@@ -10,6 +11,17 @@ export default function Home() {
 
   useEffect(() => {
     const mover = document.getElementById("movingItem")
+    const mobileHeader = document.getElementById('NavheaderForphone')
+    const mobileHeaderButton = document.getElementById('navIcon')
+
+
+    mobileHeaderButton.onclick = function () {
+      if (mobileHeader.style.display == 'flex') {
+        mobileHeader.style.display = 'none'
+      } else {
+        mobileHeader.style.display = 'flex'
+      }
+    }
 
     document.onmousemove = function (e) {
       mover.style.left = (e.pageX - 500) + 'px'
@@ -35,12 +47,39 @@ export default function Home() {
   return (
     <div className='flex flex-1 flex-col place-content-center'>
       <Head>
-        <title>Mehmet Faahem</title>
+        <title>Faahem</title>
         <meta name="description" content="MERN Stack Developer" />
         <link rel="icon" href="https://i.ibb.co/2hVHJFt/Covdffer.png" />
       </Head>
 
       <div id='movingItem' className='w-96 z-0 h-96 hidden absolute bg-pink-900 rounded-full' />
+      <div id='Navheader' className='bg-black/40 z-50  laptop:flex mobile:hidden place-items-center justify-between sticky top-0'>
+        <div className='flex space-x-1 p-4 place-items-center'>
+          <span><Image src='https://i.ibb.co/4PbPVhF/Covdffer.png' height='60' width='60' /></span>
+          <pre className='text-2xl text-white'>Faahem</pre>
+        </div>
+        <div className='mr-6 space-x-3 flex place-items-center'>
+          <Link href='#introduction'>
+            <h1 className='font-bold p-4 rounded-xl hover:bg-slate-500/50 text-red-100'>Introduction</h1>
+          </Link>
+          <Link href='#skills'>
+            <h1 className='font-bold p-4 rounded-xl hover:bg-slate-500/50 text-red-100'>Skills</h1>
+          </Link>
+        </div>
+      </div>
+      <div>
+        <svg id='navIcon' className='fill-white laptop:hidden mobile:flex p-2 place-self-end' width='50' height='50' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z" /></svg>
+      </div>
+      <div id='NavheaderForphone' className='bg-black/60 rounded-2xl w-72 place-self-center z-50 flex-col place-content-center place-items-center justify-between static top-20'>
+        <div className='mr-6 space-x-3 flex flex-col place-content-center place-items-center'>
+          <Link href='#introduction'>
+            <h1 className='font-bold p-4 rounded-xl hover:bg-slate-500/50 text-red-100'>Introduction</h1>
+          </Link>
+          <Link href='#skills'>
+            <h1 className='font-bold p-4 rounded-xl hover:bg-slate-500/50 text-red-100'>Skills</h1>
+          </Link>
+        </div>
+      </div>
       <div className='flex mobile:flex-col-reverse laptop:flex-row justify-between place-content-center place-items-center p-16'>
         <motion.div
           initial={{ opacity: 0.1 }}
@@ -109,6 +148,7 @@ export default function Home() {
         </motion.div>
       </div>
       <motion.div
+        id='skills'
         className='p-10'>
         <h1 className='text-center font-bold mobile:text-4xl laptop:text-7xl text-white mb-12'>My Skills</h1>
         <motion.div
@@ -190,7 +230,7 @@ export default function Home() {
           initial={{ opacity: 0.1 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: false }}
-          id='introduction' className='bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-2xl p-5'>
+          id='introduction' className='relative z-40 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-2xl p-5'>
           <h1 className='text-white font-bold laptop:text-3xl mobile:text-lg text-center'>
             I am 17 years old. I have about 1 year experience in web development. I am constantly trying to learn deeper topics. Web development seems like an addiction to me now. Currently I am not working for any company but I am doing some local project.
           </h1>
