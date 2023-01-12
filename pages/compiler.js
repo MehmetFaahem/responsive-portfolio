@@ -134,8 +134,10 @@ export function ApiGenerator() {
           />
         </section> */}
         <section>
-          <p className="text-xl text-white font-medium py-3">Childs</p>
-          <div className="flex space-x-3">
+          <p className=" mobile:text-sm laptop:text-left mobile:text-center laptop:text-xl text-white font-medium py-3">
+            Keys and Values
+          </p>
+          <div className="flex laptop:flex-row mobile:flex-col mobile:space-y-3 laptop:space-y-0 laptop:space-x-3">
             <input
               className="p-4 bg-black/50 rounded-xl text-white"
               value={field.currentKey}
@@ -164,13 +166,13 @@ export function ApiGenerator() {
             setField({ ...field, currentKey: "", currentValue: "" });
             console.log(field.Childs);
           }}
-          className="bg-black p-4 text-white rounded-xl mt-10"
+          className="bg-black p-4 text-sm text-white rounded-xl mt-10"
         >
           Add to API
         </button>
         <button
           onClick={() => {}}
-          className="bg-black p-4 ml-4 text-white rounded-xl mt-10"
+          className="bg-black text-sm p-4 ml-4 text-white rounded-xl mt-10"
         >
           Get Url
         </button>
@@ -180,10 +182,10 @@ export function ApiGenerator() {
           height: "500px",
           overflowY: "scroll",
         }}
-        className="p-10 laptop:w-1/2 mobile:w-11/12 laptop:mt-0 mobile:mt-10 bg-black/50 text-white rounded-2xl"
+        className="mobile:p-5 laptop:p-10 laptop:w-1/2 mobile:w-full laptop:mt-0 mobile:mt-10 bg-black/50 text-white rounded-2xl"
       >
         <pre>
-          <code className="text-3xl">{json}</code>
+          <code className="mobile:text-xs laptop:text-3xl">{json}</code>
         </pre>
       </div>
     </div>

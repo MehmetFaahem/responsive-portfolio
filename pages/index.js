@@ -376,7 +376,7 @@ export default function Home() {
           id="insp"
         >
           <div className="bg-white/20 rounded-2xl p-10 m-16">
-            <div className="flex font-bold place-items-center">
+            <div className="flex mobile:justify-center laptop:justify-start font-bold place-items-center">
               <h1 className="text-2xl mt-4 mb-4">NextJS</h1>
               <h1 className="bg-black ml-4 text-white p-3 text-3xl">N</h1>
             </div>
