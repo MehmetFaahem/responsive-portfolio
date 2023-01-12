@@ -4,7 +4,7 @@ import { jsPDF } from "jspdf";
 import Link from "next/link";
 import { motion, useViewportScroll, useTransform } from "framer-motion";
 import React, { useState, useRef, useEffect } from "react";
-import Compiler from "./compiler";
+import Compiler, { ApiGenerator } from "./compiler";
 
 export default function Home() {
   const [saving, setSaving] = useState(false);
@@ -54,7 +54,7 @@ export default function Home() {
         style={{
           zIndex: 1,
         }}
-        className="w-96 z-0 h-96 mobile:fixed hidden laptop:absolute bg-blue-400/30 rounded-full"
+        className="w-96 h-96 mobile:fixed hidden laptop:absolute bg-pink-900/10 rounded-full"
       />
       <div
         id="Navheader"
@@ -315,7 +315,7 @@ export default function Home() {
         </motion.div>
       </motion.div>
       <div
-        className="p-10"
+        className="p-10 flex flex-col place-items-center"
         style={{
           zIndex: 30,
         }}
@@ -328,9 +328,9 @@ export default function Home() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: false }}
           id="introduction"
-          className="relative z-40 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-2xl p-5"
+          className="relative laptop:w-1/2 z-40 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-2xl p-5"
         >
-          <h1 className="text-white font-bold laptop:text-3xl mobile:text-lg text-center">
+          <h1 className="text-white selection:bg-black font-bold laptop:text-3xl mobile:text-lg text-center">
             I am 17 years old. I have about 1 year experience in web
             development. I am constantly trying to learn deeper topics. Web
             development seems like an addiction to me now. Currently I am not
@@ -347,7 +347,7 @@ export default function Home() {
       </div>
       <div
         style={{
-          zIndex: 60,
+          zIndex: 90,
         }}
       >
         <motion.div
@@ -366,6 +366,21 @@ export default function Home() {
               <h1 className="bg-yellow-400 ml-4 text-black p-3 text-3xl">JS</h1>
             </div>
             <Compiler />
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0.1 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: false }}
+          id="insp"
+        >
+          <div className="bg-white/20 rounded-2xl p-10 m-16">
+            <div className="flex font-bold place-items-center">
+              <h1 className="text-2xl mt-4 mb-4">NextJS</h1>
+              <h1 className="bg-black ml-4 text-white p-3 text-3xl">N</h1>
+            </div>
+            <ApiGenerator />
           </div>
         </motion.div>
       </div>

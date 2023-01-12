@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
+import { useRouter } from "next/router";
 
 const ones = [
   "",
@@ -108,6 +109,85 @@ function compileTeen(num) {
     // 21 To 99
     return teens[Math.floor(num / 10)] + " " + ones[num % 10];
   }
+}
+
+export function ApiGenerator() {
+  const [field, setField] = useState({
+    Parent: "",
+    currentKey: "",
+    currentValue: "",
+    Childs: {
+      Data: [{}],
+    },
+  });
+  const [json, setJson] = useState(JSON.stringify(field.Childs, null, 2));
+  return (
+    <div className="mt-10 flex laptop:flex-row mobile:flex-col justify-between place-items-center">
+      <div>
+        {/* <section>
+          <p className="text-xl text-white font-medium py-3">Parent</p>
+          <input
+            value={field.Parent}
+            onChange={(e) => setField({ ...field, Parent: e.target.value })}
+            className="p-4 bg-black/50 rounded-xl text-white"
+            placeholder="Parent"
+          />
+        </section> */}
+        <section>
+          <p className="text-xl text-white font-medium py-3">Childs</p>
+          <div className="flex space-x-3">
+            <input
+              className="p-4 bg-black/50 rounded-xl text-white"
+              value={field.currentKey}
+              onChange={(e) =>
+                setField({ ...field, currentKey: e.target.value })
+              }
+              placeholder="Key"
+            />
+            <input
+              className="p-4 bg-black/50 rounded-xl text-white"
+              value={field.currentValue}
+              onChange={(e) =>
+                setField({ ...field, currentValue: e.target.value })
+              }
+              placeholder="Value"
+            />
+          </div>
+        </section>
+        <button
+          onClick={() => {
+            Object.assign(field.Childs.Data[0], {
+              [field.currentKey]: field.currentValue,
+            });
+
+            setJson(JSON.stringify(field.Childs, null, 2));
+            setField({ ...field, currentKey: "", currentValue: "" });
+            console.log(field.Childs);
+          }}
+          className="bg-black p-4 text-white rounded-xl mt-10"
+        >
+          Add to API
+        </button>
+        <button
+          onClick={() => {}}
+          className="bg-black p-4 ml-4 text-white rounded-xl mt-10"
+        >
+          Get Url
+        </button>
+      </div>
+      <div
+        style={{
+          height: "500px",
+          overflowY: "scroll",
+        }}
+        className="p-10 laptop:w-1/2 mobile:w-11/12 laptop:mt-0 mobile:mt-10 bg-black/50 text-white rounded-2xl"
+      >
+        <pre>
+          <code className="text-3xl">{json}</code>
+        </pre>
+      </div>
+    </div>
+  );
 }
 
 function Compiler() {
