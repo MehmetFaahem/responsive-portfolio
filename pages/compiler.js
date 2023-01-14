@@ -134,12 +134,12 @@ export function ApiGenerator() {
           />
         </section> */}
         <section>
-          <p className=" mobile:text-sm laptop:text-left mobile:text-center laptop:text-xl text-white font-medium py-3">
+          <p className="laptop:ml-1 mobile:ml-0 mobile:text-sm laptop:text-left mobile:text-center laptop:text-xl text-white font-medium py-3">
             Keys and Values
           </p>
-          <div className="flex laptop:flex-row mobile:flex-col mobile:space-y-3 laptop:space-y-0 laptop:space-x-3">
+          <div className="flex mobile:items-center laptop:flex-row mobile:flex-col mobile:space-y-3 laptop:space-y-0 laptop:space-x-3">
             <input
-              className="p-4 bg-black/50 rounded-xl text-white"
+              className="p-4 bg-black/50 w-11/12 rounded-xl text-white"
               value={field.currentKey}
               onChange={(e) =>
                 setField({ ...field, currentKey: e.target.value })
@@ -147,7 +147,7 @@ export function ApiGenerator() {
               placeholder="Key"
             />
             <input
-              className="p-4 bg-black/50 rounded-xl text-white"
+              className="p-4 bg-black/50 w-11/12 rounded-xl text-white"
               value={field.currentValue}
               onChange={(e) =>
                 setField({ ...field, currentValue: e.target.value })
@@ -156,26 +156,28 @@ export function ApiGenerator() {
             />
           </div>
         </section>
-        <button
-          onClick={() => {
-            Object.assign(field.Childs.Data[0], {
-              [field.currentKey]: field.currentValue,
-            });
+        <section className="flex justify-center">
+          <button
+            onClick={() => {
+              Object.assign(field.Childs.Data[0], {
+                [field.currentKey]: field.currentValue,
+              });
 
-            setJson(JSON.stringify(field.Childs, null, 2));
-            setField({ ...field, currentKey: "", currentValue: "" });
-            console.log(field.Childs);
-          }}
-          className="bg-black p-4 text-sm text-white rounded-xl mt-10"
-        >
-          Add to API
-        </button>
-        <button
+              setJson(JSON.stringify(field.Childs, null, 2));
+              setField({ ...field, currentKey: "", currentValue: "" });
+              console.log(field.Childs);
+            }}
+            className="bg-black p-4 text-sm text-white rounded-xl mt-10"
+          >
+            Add to API
+          </button>
+        </section>
+        {/* <button
           onClick={() => {}}
           className="bg-black text-sm p-4 ml-4 text-white rounded-xl mt-10"
         >
           Get Url
-        </button>
+        </button> */}
       </div>
       <div
         style={{

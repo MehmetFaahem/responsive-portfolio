@@ -9,17 +9,16 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'fav': ['Poppins', 'sans-serif'],
-        'fav2': ['Secular One', 'sans-serif']
+        fav: ["Poppins", "sans-serif"],
+        fav2: ["Secular One", "sans-serif"],
       },
       screens: {
-        'mobile': '280px',
-        'tablet': '640px',
-        'laptop': '1024px',
-        'desktop': '1280px',
-      }
+        mobile: "280px",
+        tablet: "640px",
+        laptop: "1024px",
+        desktop: "1280px",
+      },
     },
   },
-  plugins: [],
-}
-
+  plugins: [require("tailwind-scrollbar")({ nocompatible: true })],
+};

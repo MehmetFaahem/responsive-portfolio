@@ -2,7 +2,12 @@ import Head from "next/head";
 import Image from "next/image";
 import { jsPDF } from "jspdf";
 import Link from "next/link";
-import { motion, useViewportScroll, useTransform } from "framer-motion";
+import {
+  motion,
+  useViewportScroll,
+  useTransform,
+  useScroll,
+} from "framer-motion";
 import React, { useState, useRef, useEffect } from "react";
 import Compiler, { ApiGenerator } from "./compiler";
 
@@ -30,7 +35,7 @@ export default function Home() {
     };
   }, []);
 
-  const { scrollYProgress } = useViewportScroll();
+  const { scrollYProgress } = useScroll();
   const scale = useTransform(scrollYProgress, [0, 1], [0.5, 1.005]);
 
   function saveResume() {
@@ -384,6 +389,71 @@ export default function Home() {
           </div>
         </motion.div>
       </div>
+      <div
+        style={{
+          zIndex: 90,
+        }}
+        className="m-16"
+      >
+        <motion.div
+          initial={{ opacity: 0.1 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: false }}
+          id="mernp"
+        >
+          <h1 className="text-center mobile:w-96 laptop:w-full laptop:inline-block mobile:flex content-center mt-10 font-bold mobile:text-4xl laptop:text-7xl text-white mb-6">
+            <h1>MERN Projects</h1>
+          </h1>
+          <div
+            style={{
+              height: "520px",
+            }}
+            className="bg-blue-400/60 mt-10 relative overflow-hidden rounded-2xl w-full mobile:p-7 laptop:p-16 flex flex-row justify-start mobile:items-end laptop:items-center"
+          >
+            <div>
+              <h1 className="mobile:text-2xl laptop:mt-0 mobile:mt-10 laptop:text-6xl text-orange-300 font-bold">
+                IMEI Web
+              </h1>
+              <p className="mobile:text-sm laptop:text-2xl mobile:mt-2 laptop:mt-7 mobile:w-full laptop:w-1/2">
+                Using this web tool, you can check your phone&apos;s info. Also
+                you can Unlock, Bypass and Remove including IOS or IPhone.{" "}
+                <span>
+                  <a
+                    className="pt-10 mobile:text-sm laptop:text-xl text-orange-200"
+                    href="https://imeichecker.vercel.app"
+                  >
+                    Click To Visit
+                  </a>
+                </span>
+              </p>
+            </div>
+
+            <div
+              style={{
+                width: "600px",
+              }}
+              className="laptop:flex mobile:hidden right-0 top-0 absolute"
+            >
+              <img
+                src="https://i.ibb.co/KLypYN7/imeichecker-vercel-app-Nest-Hub-Max.png"
+                className="h-full hover:-translate-y-64 transition-all duration-700 w-auto "
+              />
+            </div>
+            <div
+              style={{
+                width: "100%",
+              }}
+              className="laptop:hidden mobile:flex left-0 top-0 absolute"
+            >
+              <img
+                src="https://i.ibb.co/KLypYN7/imeichecker-vercel-app-Nest-Hub-Max.png"
+                className="h-full shadow-lg shadow-white hover:-translate-y-64 transition-all duration-700 w-full "
+              />
+            </div>
+          </div>
+        </motion.div>
+      </div>
     </div>
   );
+  1;
 }
