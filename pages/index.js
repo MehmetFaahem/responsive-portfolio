@@ -404,7 +404,10 @@ export default function Home() {
           <h1 className="text-center mobile:w-96 laptop:w-full laptop:inline-block mobile:flex content-center mt-10 font-bold mobile:text-4xl laptop:text-7xl text-white mb-6">
             <h1>MERN Projects</h1>
           </h1>
-          <div
+          <motion.div
+            initial={{ opacity: 0.1 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: false }}
             style={{
               height: "520px",
             }}
@@ -436,7 +439,7 @@ export default function Home() {
             >
               <img
                 src="https://i.ibb.co/KLypYN7/imeichecker-vercel-app-Nest-Hub-Max.png"
-                className="h-full hover:-translate-y-64 transition-all duration-700 w-auto "
+                className="h-full hover:-translate-y-64 rounded-2xl transition-all duration-700 w-auto "
               />
             </div>
             <div
@@ -447,10 +450,60 @@ export default function Home() {
             >
               <img
                 src="https://i.ibb.co/KLypYN7/imeichecker-vercel-app-Nest-Hub-Max.png"
-                className="h-full shadow-lg shadow-white hover:-translate-y-64 transition-all duration-700 w-full "
+                className="h-full shadow-lg rounded-2xl shadow-white hover:-translate-y-64 transition-all duration-700 w-full "
               />
             </div>
-          </div>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0.1 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: false }}
+            style={{
+              height: "520px",
+            }}
+            className="bg-blue-400/60 mt-10 relative overflow-hidden rounded-2xl w-full mobile:p-7 laptop:p-16 flex flex-row justify-end mobile:items-end laptop:items-center"
+          >
+            <div className="flex flex-col laptop:place-items-end">
+              <h1 className="mobile:text-2xl laptop:mt-0 mobile:mt-10 laptop:text-6xl text-orange-300 font-bold">
+                Kinbo Product
+              </h1>
+              <p className="mobile:text-sm laptop:text-end laptop:text-2xl mobile:mt-2 laptop:mt-7 mobile:w-full laptop:w-2/5">
+                Using this E-Commerce Platform you can sell your business items.
+                You can post unlimited advertisement for your products{" "}
+                <span>
+                  <a
+                    className="pt-10 mobile:text-sm laptop:text-xl text-orange-200"
+                    href="https://kinbo.vercel.app/"
+                  >
+                    Click To Visit
+                  </a>
+                </span>
+              </p>
+            </div>
+
+            <div
+              style={{
+                width: "600px",
+              }}
+              className="laptop:flex mobile:hidden left-0 top-0 absolute"
+            >
+              <img
+                src="https://i.ibb.co/6bspVF2/kinbo-vercel-app-Nest-Hub-Max-1.png"
+                className="h-full hover:-translate-y-96 rounded-2xl transition-all duration-700 w-auto "
+              />
+            </div>
+            <div
+              style={{
+                width: "100%",
+              }}
+              className="laptop:hidden h-80 mobile:flex left-0 top-0 absolute"
+            >
+              <img
+                src="https://i.ibb.co/6bspVF2/kinbo-vercel-app-Nest-Hub-Max-1.png"
+                className="h-full shadow-lg rounded-2xl shadow-white hover:-translate-y-64 transition-all duration-700 w-full "
+              />
+            </div>
+          </motion.div>
         </motion.div>
       </div>
     </div>
