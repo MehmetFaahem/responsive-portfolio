@@ -98,7 +98,7 @@ export default function Home() {
       {show ? (
         <div
           id="NavheaderForphone"
-          className="bg-white/40 transition-all duration-500 w-full place-self-center z-50 flex-col place-content-center place-items-center justify-between static top-0"
+          className="bg-white/40 mobile:flex laptop:hidden transition-all duration-500 w-full place-self-center z-50 flex-col place-content-center place-items-center justify-between static top-0"
         >
           <div className="flex transition-all duration-500 space-x-3 my-2 place-content-end mx-3 place-items-center">
             <Link href="#introduction">
