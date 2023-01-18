@@ -10,22 +10,15 @@ import {
 } from "framer-motion";
 import React, { useState, useRef, useEffect } from "react";
 import Compiler, { ApiGenerator } from "./compiler";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 
 export default function Home() {
   const [saving, setSaving] = useState(false);
+  const [show, setShow] = useState(true);
 
   useEffect(() => {
     const mover = document.getElementById("movingItem");
-    const mobileHeader = document.getElementById("NavheaderForphone");
-    const mobileHeaderButton = document.getElementById("navIcon");
-
-    mobileHeaderButton.onclick = function () {
-      if (mobileHeader.style.display == "flex") {
-        mobileHeader.style.display = "none";
-      } else {
-        mobileHeader.style.display = "flex";
-      }
-    };
 
     document.onmousemove = function (e) {
       mover.style.left = e.pageX - 170 + "px";
@@ -94,34 +87,33 @@ export default function Home() {
         </div>
       </div>
       <div>
-        <svg
+        <button
           id="navIcon"
-          className="fill-white laptop:hidden mobile:flex p-2 place-self-end"
-          width="50"
-          height="50"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 448 512"
+          className="fill-white laptop:hidden mobile:flex p-2 mt-1 place-self-end"
+          onClick={() => setShow(!show)}
         >
-          <path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z" />
-        </svg>
+          <FontAwesomeIcon icon={faBars} height="30" width="30" color="white" />
+        </button>
       </div>
-      <div
-        id="NavheaderForphone"
-        className="bg-pink-600/60 rounded-2xl w-72 place-self-center z-50 flex-col place-content-center place-items-center justify-between static top-20"
-      >
-        <div className="mr-6 space-x-3 flex flex-col place-content-center place-items-center">
-          <Link href="#introduction">
-            <h1 className="font-bold p-4 rounded-xl hover:bg-slate-500/50 text-red-100">
-              Introduction
-            </h1>
-          </Link>
-          <Link href="#skills">
-            <h1 className="font-bold p-4 rounded-xl hover:bg-slate-500/50 text-red-100">
-              Skills
-            </h1>
-          </Link>
+      {show ? (
+        <div
+          id="NavheaderForphone"
+          className="bg-white/40 transition-all duration-500 w-full place-self-center z-50 flex-col place-content-center place-items-center justify-between static top-0"
+        >
+          <div className="flex transition-all duration-500 space-x-3 my-2 place-content-end mx-3 place-items-center">
+            <Link href="#introduction">
+              <h1 className="font-bold p-2 bg-white hover:bg-slate-500/50 text-black">
+                Introduction
+              </h1>
+            </Link>
+            <Link href="#skills">
+              <h1 className="font-bold p-2 bg-white hover:bg-slate-500/50 text-black">
+                Skills
+              </h1>
+            </Link>
+          </div>
         </div>
-      </div>
+      ) : null}
       <div
         style={{
           zIndex: 10,

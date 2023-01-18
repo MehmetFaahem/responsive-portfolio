@@ -10,8 +10,8 @@
 }
 
 #NavheaderForphone {
-  display: none;
-  transition: display 3s ease-in-out 2s;
+  position: fixed;
+  z-index: 1000;
 }
 
 html,
