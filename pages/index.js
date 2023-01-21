@@ -15,7 +15,25 @@ import { faBars } from "@fortawesome/free-solid-svg-icons";
 
 export default function Home() {
   const [saving, setSaving] = useState(false);
-  const [show, setShow] = useState(true);
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
+  const [visible, setVisible] = useState(true);
+
+  const handleScroll = () => {
+    const currentScrollPos = window.scrollY;
+
+    if (currentScrollPos > prevScrollPos) {
+      setVisible(false);
+    } else {
+      setVisible(true);
+    }
+
+    setPrevScrollPos(currentScrollPos);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  });
 
   useEffect(() => {
     const mover = document.getElementById("movingItem");
@@ -84,23 +102,28 @@ export default function Home() {
               Instant Projects
             </h1>
           </Link>
+          <Link href="#mernp">
+            <h1 className="font-bold p-4 rounded-xl hover:bg-slate-500/50 text-red-100">
+              MERN Projects
+            </h1>
+          </Link>
         </div>
       </div>
       <div>
         <button
           id="navIcon"
           className="fill-white laptop:hidden mobile:flex p-2 mt-1 place-self-end"
-          onClick={() => setShow(!show)}
+          onClick={() => setVisible(!visible)}
         >
           <FontAwesomeIcon icon={faBars} height="30" width="30" color="white" />
         </button>
       </div>
-      {show ? (
+      {visible ? (
         <div
           id="NavheaderForphone"
           className="bg-white/40 mobile:flex laptop:hidden transition-all duration-500 w-full place-self-center z-50 flex-col place-content-center place-items-center justify-between static top-0"
         >
-          <div className="flex transition-all duration-500 space-x-3 my-2 place-content-end mx-3 place-items-center">
+          <div className="flex ml-10 transition-all duration-500 space-x-3 my-2 place-content-end mx-3 place-items-center">
             <Link href="#introduction">
               <h1 className="font-bold p-2 bg-white hover:bg-slate-500/50 text-black">
                 Introduction
@@ -111,10 +134,21 @@ export default function Home() {
                 Skills
               </h1>
             </Link>
+            <Link href="#insp">
+              <h1 className="font-bold p-2 bg-white hover:bg-slate-500/50 text-black">
+                Projects
+              </h1>
+            </Link>
+            <Link href="#mernp">
+              <h1 className="font-bold p-2 bg-white hover:bg-slate-500/50 text-black">
+                MERN
+              </h1>
+            </Link>
           </div>
         </div>
       ) : null}
       <div
+        onScroll={() => setShow(false)}
         style={{
           zIndex: 10,
         }}
@@ -492,6 +526,56 @@ export default function Home() {
             >
               <img
                 src="https://i.ibb.co/6bspVF2/kinbo-vercel-app-Nest-Hub-Max-1.png"
+                className="h-full shadow-lg rounded-2xl shadow-white hover:-translate-y-64 transition-all duration-700 w-full "
+              />
+            </div>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0.1 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: false }}
+            style={{
+              height: "520px",
+            }}
+            className="bg-blue-400/60 mt-10 relative overflow-hidden rounded-2xl w-full mobile:p-7 laptop:p-16 flex flex-row justify-start mobile:items-end laptop:items-center"
+          >
+            <div>
+              <h1 className="mobile:text-2xl laptop:mt-0 mobile:mt-10 laptop:text-6xl text-orange-300 font-bold">
+                POS System
+              </h1>
+              <p className="mobile:text-sm laptop:text-2xl mobile:mt-2 laptop:mt-7 mobile:w-full laptop:w-1/2">
+                Using this Tool, you can manage your e-commerce store. Here you
+                can add all of your product, customer, company details.{" "}
+                <span>
+                  <a
+                    className="pt-10 mobile:text-sm laptop:text-xl text-orange-200"
+                    href="https://posystem.vercel.app/"
+                  >
+                    Click To Visit
+                  </a>
+                </span>
+              </p>
+            </div>
+
+            <div
+              style={{
+                width: "600px",
+              }}
+              className="laptop:flex mobile:hidden right-0 top-0 absolute"
+            >
+              <img
+                src="https://i.ibb.co/TWC8b9C/posystem-vercel-app-Nest-Hub-Max.png"
+                className="h-full hover:-translate-y-48 rounded-2xl transition-all duration-700 w-auto "
+              />
+            </div>
+            <div
+              style={{
+                width: "100%",
+              }}
+              className="laptop:hidden mobile:flex left-0 top-0 absolute"
+            >
+              <img
+                src="https://i.ibb.co/TWC8b9C/posystem-vercel-app-Nest-Hub-Max.png"
                 className="h-full shadow-lg rounded-2xl shadow-white hover:-translate-y-64 transition-all duration-700 w-full "
               />
             </div>
