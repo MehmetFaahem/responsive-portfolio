@@ -12,6 +12,7 @@ import React, { useState, useRef, useEffect } from "react";
 import Compiler, { ApiGenerator } from "./compiler";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
 export default function Home() {
   const [saving, setSaving] = useState(false);
@@ -87,6 +88,14 @@ export default function Home() {
           <pre className="text-2xl text-white">Faahem</pre>
         </div>
         <div className="mr-6 space-x-3 flex place-items-center">
+          <Link className="mr-2" href="https://github.com/MehmetFaahem">
+            <FontAwesomeIcon
+              icon={faGithub}
+              height="30"
+              width="30"
+              color="white"
+            />
+          </Link>
           <Link href="#introduction">
             <h1 className="font-bold p-4 rounded-xl hover:bg-slate-500/50 text-red-100">
               Introduction
@@ -109,7 +118,7 @@ export default function Home() {
           </Link>
         </div>
       </div>
-      <div>
+      {/* <div>
         <button
           id="navIcon"
           className="fill-white laptop:hidden mobile:flex p-2 mt-1 place-self-end"
@@ -117,30 +126,38 @@ export default function Home() {
         >
           <FontAwesomeIcon icon={faBars} height="30" width="30" color="white" />
         </button>
-      </div>
+      </div> */}
       {visible ? (
         <div
           id="NavheaderForphone"
           className="bg-white/40 mobile:flex laptop:hidden transition-all duration-500 w-full place-self-center z-50 flex-col place-content-center place-items-center justify-between static top-0"
         >
-          <div className="flex ml-10 transition-all duration-500 space-x-3 my-2 place-content-end mx-3 place-items-center">
+          <div className="flex ml-4 overflow-x-scroll transition-all duration-500 space-x-3 my-2 place-content-end mx-4 place-items-center">
+            <Link className="mr-2" href="https://github.com/MehmetFaahem">
+              <FontAwesomeIcon
+                icon={faGithub}
+                height="35"
+                width="35"
+                color="white"
+              />
+            </Link>
             <Link href="#introduction">
-              <h1 className="font-bold p-2 bg-white hover:bg-slate-500/50 text-black">
-                Introduction
+              <h1 className="font-bold rounded-3xl p-2 bg-white hover:bg-slate-500/50 text-black">
+                Intro
               </h1>
             </Link>
             <Link href="#skills">
-              <h1 className="font-bold p-2 bg-white hover:bg-slate-500/50 text-black">
+              <h1 className="font-bold rounded-3xl p-2 bg-white hover:bg-slate-500/50 text-black">
                 Skills
               </h1>
             </Link>
             <Link href="#insp">
-              <h1 className="font-bold p-2 bg-white hover:bg-slate-500/50 text-black">
+              <h1 className="font-bold rounded-3xl p-2 bg-white hover:bg-slate-500/50 text-black">
                 Projects
               </h1>
             </Link>
             <Link href="#mernp">
-              <h1 className="font-bold p-2 bg-white hover:bg-slate-500/50 text-black">
+              <h1 className="font-bold rounded-3xl p-2 bg-white hover:bg-slate-500/50 text-black">
                 MERN
               </h1>
             </Link>
