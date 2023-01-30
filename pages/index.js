@@ -227,7 +227,7 @@ export default function Home() {
             damping: 15,
           }}
         >
-          <div className="z-30" id="imageOfMe">
+          <div className="z-30 laptop:mt-0 mobile:mt-6 " id="imageOfMe">
             <Image
               src="https://i.ibb.co/4PbPVhF/Covdffer.png"
               height="600"
@@ -259,7 +259,7 @@ export default function Home() {
             className="h-full w-10/12 rounded-2xl absolute z-0 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500"
           />
           <h1 className="mobile:text-2xl laptop:text-4xl text-white font-bold mobile:p-5 laptop:p-10 z-10">
-            Next JS
+            NextJS
           </h1>
           <h1 className="mobile:text-xl laptop:text-2xl text-black flex font-bold mobile:p-5 laptop:p-10 z-10">
             <span className="mobile:hidden laptop:flex mr-2">Level:</span>Expert
@@ -298,7 +298,7 @@ export default function Home() {
             className="h-full w-2/3 rounded-2xl absolute z-0 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500"
           />
           <h1 className="mobile:text-2xl laptop:text-4xl text-white font-bold mobile:p-5 laptop:p-10 z-10">
-            Node JS
+            NodeJS
           </h1>
           <h1 className="mobile:text-xl laptop:text-2xl text-black flex font-bold mobile:p-5 laptop:p-10 z-10">
             <span className="mobile:hidden laptop:flex mr-2">Level:</span>
