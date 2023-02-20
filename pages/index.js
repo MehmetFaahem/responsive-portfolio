@@ -376,13 +376,19 @@ export default function Home() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: false }}
           id="introduction"
-          className="relative laptop:w-1/2 z-40 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-2xl p-5"
+          className="relative flex items-center overflow-hidden mt-[30px] w-[93%] mobile:h-[550px] laptop:h-[200px] z-40 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-2xl p-5"
         >
-          <h1 className="text-white selection:bg-black font-bold laptop:text-3xl mobile:text-lg text-center">
-            I am 17 years old. I have about 1 year experience in web
-            development. I am constantly trying to learn deeper topics. Web
-            development seems like an addiction to me now. Currently I am not
-            working for any company but I am doing some local project.
+          <Image
+            height={"320"}
+            width={"320"}
+            className="absolute outline-4 outline-double outline-blue-50 rounded-full mobile:top-[-50px] mobile:left-[0px] laptop:top-[-40px] laptop:left-[-43px]"
+            src={"https://i.ibb.co/XCp38xg/DALL-E-2023-01-30-20-27-20.png"}
+          />
+          <h1 className="text-white mobile:bottom-[30px] absolute right-[40px] mobile:w-[70%] laptop:w-[60%] selection:bg-black font-medium laptop:text-xl mobile:text-[16px] mobile:text-center laptop:text-right">
+            It&apos;s Faahem. I&apos;m 17 years old. I have about 1 year
+            experience in MERN Stack. I am constantly trying to learn deeper
+            topics. Web development seems like an addiction to me now. Currently
+            I am not working for any company but I am doing some local project.
           </h1>
           <div
             id="movingItem2"
@@ -391,45 +397,6 @@ export default function Home() {
             }}
             className="w-2/3 h-96 hidden absolute bg-pink-900 rounded-full"
           />
-        </motion.div>
-      </div>
-      <div
-        style={{
-          zIndex: 90,
-        }}
-      >
-        <motion.div
-          initial={{ opacity: 0.1 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: false }}
-          id="insp"
-        >
-          <h1 className="text-center mt-10 font-bold mobile:text-4xl laptop:text-7xl text-white mb-6">
-            <h1>Instant Projects</h1>
-          </h1>
-
-          <div className="bg-pink-700/20 rounded-2xl p-10 m-16">
-            <div className="flex font-bold place-items-center">
-              <h1 className="text-2xl mt-4 mb-4">JavaScript</h1>
-              <h1 className="bg-yellow-400 ml-4 text-black p-3 text-3xl">JS</h1>
-            </div>
-            <Compiler />
-          </div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0.1 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: false }}
-          id="insp"
-        >
-          <div className="bg-white/20 rounded-2xl p-10 m-16">
-            <div className="flex mobile:justify-center laptop:justify-start font-bold place-items-center">
-              <h1 className="text-2xl mt-4 mb-4">NextJS</h1>
-              <h1 className="bg-black ml-4 text-white p-3 text-3xl">N</h1>
-            </div>
-            <ApiGenerator />
-          </div>
         </motion.div>
       </div>
       <div
@@ -454,7 +421,7 @@ export default function Home() {
             style={{
               height: "520px",
             }}
-            className="bg-blue-400/60 mt-10 relative overflow-hidden rounded-2xl w-full mobile:p-7 laptop:p-16 flex flex-row justify-start mobile:items-end laptop:items-center"
+            className="bg-gradient-to-r from-sky-900 to-rose-700 mt-10 relative overflow-hidden rounded-2xl w-full mobile:p-7 laptop:p-16 flex flex-row justify-start mobile:items-end laptop:items-center"
           >
             <div>
               <h1 className="mobile:text-2xl laptop:mt-0 mobile:mt-10 laptop:text-6xl text-orange-300 font-bold">
@@ -493,7 +460,7 @@ export default function Home() {
             >
               <img
                 src="https://i.ibb.co/KLypYN7/imeichecker-vercel-app-Nest-Hub-Max.png"
-                className="h-full shadow-lg rounded-2xl shadow-white hover:-translate-y-64 transition-all duration-700 w-full "
+                className="h-[320px] shadow-lg rounded-2xl shadow-white hover:-translate-y-64 transition-all duration-700 w-full "
               />
             </div>
           </motion.div>
@@ -504,10 +471,10 @@ export default function Home() {
             style={{
               height: "520px",
             }}
-            className="bg-blue-400/60 mt-10 relative overflow-hidden rounded-2xl w-full mobile:p-7 laptop:p-16 flex flex-row justify-end mobile:items-end laptop:items-center"
+            className="bg-gradient-to-r from-sky-900 to-rose-700 mt-10 relative overflow-hidden rounded-2xl w-full mobile:p-7 laptop:p-16 flex flex-row justify-end mobile:items-end laptop:items-center"
           >
             <div className="flex flex-col laptop:place-items-end">
-              <h1 className="mobile:text-2xl laptop:mt-0 mobile:mt-10 laptop:text-6xl text-orange-300 font-bold">
+              <h1 className="mobile:text-2xl laptop:mt-0 mobile:mt-0 laptop:text-6xl text-orange-300 font-bold">
                 Kinbo Product
               </h1>
               <p className="mobile:text-sm laptop:text-end laptop:text-2xl mobile:mt-2 laptop:mt-7 mobile:w-full laptop:w-2/5">
@@ -539,11 +506,11 @@ export default function Home() {
               style={{
                 width: "100%",
               }}
-              className="laptop:hidden h-80 mobile:flex left-0 top-0 absolute"
+              className=" laptop:hidden h-80 mobile:flex left-0 top-0 absolute"
             >
               <img
                 src="https://i.ibb.co/6bspVF2/kinbo-vercel-app-Nest-Hub-Max-1.png"
-                className="h-full shadow-lg rounded-2xl shadow-white hover:-translate-y-64 transition-all duration-700 w-full "
+                className="h-[340px] shadow-lg rounded-2xl shadow-white hover:-translate-y-64 transition-all duration-700 w-full "
               />
             </div>
           </motion.div>
@@ -554,9 +521,9 @@ export default function Home() {
             style={{
               height: "520px",
             }}
-            className="bg-blue-400/60 mt-10 relative overflow-hidden rounded-2xl w-full mobile:p-7 laptop:p-16 flex flex-row justify-start mobile:items-end laptop:items-center"
+            className="bg-gradient-to-r from-sky-900 to-rose-700 mt-10 relative overflow-hidden rounded-2xl w-full mobile:p-7 laptop:p-16 flex flex-row justify-start mobile:items-end laptop:items-center"
           >
-            <div>
+            <div className="px-3">
               <h1 className="mobile:text-2xl laptop:mt-0 mobile:mt-10 laptop:text-6xl text-orange-300 font-bold">
                 POS System
               </h1>
@@ -593,10 +560,100 @@ export default function Home() {
             >
               <img
                 src="https://i.ibb.co/TWC8b9C/posystem-vercel-app-Nest-Hub-Max.png"
-                className="h-full shadow-lg rounded-2xl shadow-white hover:-translate-y-64 transition-all duration-700 w-full "
+                className="h-[320px] shadow-lg rounded-2xl shadow-white hover:-translate-y-64 transition-all duration-700 w-full "
               />
             </div>
           </motion.div>
+          <motion.div
+            initial={{ opacity: 0.1 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: false }}
+            style={{
+              height: "520px",
+            }}
+            className="bg-gradient-to-r from-sky-900 to-rose-700 mt-10 relative overflow-hidden rounded-2xl w-full mobile:p-7 laptop:p-16 flex flex-row justify-end mobile:items-end laptop:items-center"
+          >
+            <div className="flex flex-col px-3 laptop:place-items-end">
+              <h1 className="mobile:text-2xl laptop:mt-0 mobile:mt-10 laptop:text-6xl text-orange-300 font-bold">
+                Lekhok
+              </h1>
+              <p className="mobile:text-sm laptop:text-end laptop:text-2xl mobile:mt-2 laptop:mt-7 mobile:w-full laptop:w-2/5">
+                You can write your own blogs freely here. And also you can
+                discover useful blogs related to Programming, Books, Writers,
+                Health, Business, Education etc{" "}
+                <span>
+                  <a
+                    className="pt-10 mobile:text-sm laptop:text-xl text-orange-200"
+                    href="https://lekhok.vercel.app/"
+                  >
+                    Click To Visit
+                  </a>
+                </span>
+              </p>
+            </div>
+
+            <div
+              style={{
+                width: "600px",
+              }}
+              className="laptop:flex mobile:hidden left-0 top-0 absolute"
+            >
+              <img
+                src="https://i.ibb.co/XkXFz1w/localhost-3000-Nest-Hub.png"
+                className="h-full hover:-translate-y-1 rounded-2xl transition-all duration-700 w-auto "
+              />
+            </div>
+            <div
+              style={{
+                width: "100%",
+              }}
+              className="laptop:hidden h-80 mobile:flex left-0 top-0 absolute"
+            >
+              <img
+                src="https://i.ibb.co/XkXFz1w/localhost-3000-Nest-Hub.png"
+                className="h-[300px] shadow-lg rounded-2xl shadow-white hover:-translate-y-64 transition-all duration-700 w-full "
+              />
+            </div>
+          </motion.div>
+        </motion.div>
+      </div>
+      <div
+        style={{
+          zIndex: 90,
+        }}
+      >
+        <motion.div
+          initial={{ opacity: 0.1 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: false }}
+          id="insp"
+        >
+          <h1 className="text-center mt-10 font-bold mobile:text-4xl laptop:text-7xl text-white mb-6">
+            <h1>Instant Projects</h1>
+          </h1>
+
+          <div className="bg-gradient-to-r from-sky-900 to-rose-700 rounded-2xl p-10 m-16">
+            <div className="flex font-bold place-items-center">
+              <h1 className="text-2xl mt-4 mb-4">JavaScript</h1>
+              <h1 className="bg-yellow-400 ml-4 text-black p-3 text-3xl">JS</h1>
+            </div>
+            <Compiler />
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0.1 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: false }}
+          id="insp"
+        >
+          <div className="bg-gradient-to-r from-rose-700 to-sky-900 rounded-2xl p-10 m-16">
+            <div className="flex mobile:justify-center laptop:justify-start font-bold place-items-center">
+              <h1 className="text-2xl mt-4 mb-4">NextJS</h1>
+              <h1 className="bg-black ml-4 text-white p-3 text-3xl">N</h1>
+            </div>
+            <ApiGenerator />
+          </div>
         </motion.div>
       </div>
     </div>
