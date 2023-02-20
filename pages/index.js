@@ -384,7 +384,7 @@ export default function Home() {
             className="absolute outline-4 outline-double outline-blue-50 rounded-full mobile:top-[-50px] mobile:left-[0px] laptop:top-[-40px] laptop:left-[-43px]"
             src={"https://i.ibb.co/XCp38xg/DALL-E-2023-01-30-20-27-20.png"}
           />
-          <h1 className="text-white mobile:bottom-[30px] absolute right-[40px] mobile:w-[70%] laptop:w-[60%] selection:bg-black font-medium laptop:text-xl mobile:text-[16px] mobile:text-center laptop:text-right">
+          <h1 className="text-white mobile:bottom-[30px] laptop:bottom-[26%] absolute right-[40px] mobile:w-[70%] laptop:w-[60%] selection:bg-black font-medium laptop:text-xl mobile:text-[16px] mobile:text-center laptop:text-right">
             It&apos;s Faahem. I&apos;m 17 years old. I have about 1 year
             experience in MERN Stack. I am constantly trying to learn deeper
             topics. Web development seems like an addiction to me now. Currently
