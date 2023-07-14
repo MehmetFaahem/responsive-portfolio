@@ -433,7 +433,7 @@ export default function Home() {
                 <span>
                   <a
                     className="pt-10 mobile:text-sm laptop:text-xl text-orange-200"
-                    href="https://imeichecker.vercel.app"
+                    href="https://www.imeiweb.com/"
                   >
                     Click To Visit
                   </a>
@@ -475,15 +475,16 @@ export default function Home() {
           >
             <div className="flex flex-col laptop:place-items-end">
               <h1 className="mobile:text-2xl laptop:mt-0 mobile:mt-0 laptop:text-6xl text-orange-300 font-bold">
-                Kinbo Product
+                Softex Solution
               </h1>
               <p className="mobile:text-sm laptop:text-end laptop:text-2xl mobile:mt-2 laptop:mt-7 mobile:w-full laptop:w-2/5">
-                Using this E-Commerce Platform you can sell your business items.
-                You can post unlimited advertisement for your products{" "}
+                This is a Software Service Provider Agency. People can take
+                services from this site as like shedule a meeting. And anyone
+                can apply for a job from here.{" "}
                 <span>
                   <a
                     className="pt-10 mobile:text-sm laptop:text-xl text-orange-200"
-                    href="https://kinbo.vercel.app/"
+                    href="https://softexsolution.com/"
                   >
                     Click To Visit
                   </a>
@@ -498,7 +499,7 @@ export default function Home() {
               className="laptop:flex mobile:hidden left-0 top-0 absolute"
             >
               <img
-                src="https://i.ibb.co/6bspVF2/kinbo-vercel-app-Nest-Hub-Max-1.png"
+                src="https://i.ibb.co/9rHQHfw/softexsolution-com-Capturer.png"
                 className="h-full hover:-translate-y-96 rounded-2xl transition-all duration-700 w-auto "
               />
             </div>
@@ -509,7 +510,7 @@ export default function Home() {
               className=" laptop:hidden h-80 mobile:flex left-0 top-0 absolute"
             >
               <img
-                src="https://i.ibb.co/6bspVF2/kinbo-vercel-app-Nest-Hub-Max-1.png"
+                src="https://i.ibb.co/9rHQHfw/softexsolution-com-Capturer.png"
                 className="h-[340px] shadow-lg rounded-2xl shadow-white hover:-translate-y-64 transition-all duration-700 w-full "
               />
             </div>
