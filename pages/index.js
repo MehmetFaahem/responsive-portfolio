@@ -9,7 +9,7 @@ import Compiler, { ApiGenerator } from "./compiler";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import Pic from "../public/pic.jpg";
-import Pic2 from "../public/pic2.jpg";
+import Pic2 from "../public/pictwo.jpg";
 import Skills from "../components/Skills";
 
 export default function Home() {
