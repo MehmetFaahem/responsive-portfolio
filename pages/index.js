@@ -215,7 +215,7 @@ export default function Home() {
         </h1>
         <div
           id="introduction"
-          className="relative flex items-center overflow-hidden mt-[30px] w-[93%] mobile:h-[390px] laptop:h-[280px] z-40 bg-gradient-to-r from-sky-900 via-rose-900/20 to-slate-900 rounded-2xl p-5"
+          className="relative flex flex-row items-center overflow-hidden mt-[30px] w-[93%] mobile:h-[auto] laptop:h-[280px] z-40 bg-gradient-to-r from-sky-900 via-rose-900/20 to-slate-900 rounded-2xl p-5"
         >
           <Image
             height={"320"}
@@ -223,7 +223,7 @@ export default function Home() {
             className="absolute mobile:hidden laptop:flex outline-4 outline-double outline-blue-50 rounded-full mobile:top-[-50px] mobile:left-[0px] laptop:top-[-40px] laptop:left-[-45px]"
             src={Pic2}
           />
-          <h1 className="text-white mobile:bottom-[30px] laptop:bottom-[26%] absolute right-[40px] mobile:w-[70%] laptop:w-[60%] selection:bg-black font-medium laptop:text-[17px] mobile:text-[90%] mobile:text-center laptop:text-right">
+          <h1 className="text-white text-right laptop:ml-[40%] mobile:bottom-[30px] laptop:bottom-[26%] right-[40px] mobile:w-[100%] laptop:w-[70%] selection:bg-black font-light laptop:text-[20px] mobile:text-[12px] mobile:text-center laptop:text-right">
             As a dedicated React JS & React Native Developer, I am Fahey,
             bringing over 2 years of hands-on experience in crafting efficient
             and scalable solutions. Passionate about staying at the forefront of
@@ -249,7 +249,7 @@ export default function Home() {
         className="m-16"
       >
         <div id="mernp" className="flex flex-col place-items-center">
-          <h1 className="text-center laptop:w-full laptop:inline-block mobile:flex content-center mt-10 font-bold mobile:text-4xl laptop:text-7xl text-white mb-6">
+          <h1 className="text-center laptop:w-full laptop:inline-block mobile:flex content-center font-bold mobile:text-4xl laptop:text-7xl text-white mb-6">
             <h1>MERN Projects</h1>
           </h1>
 
