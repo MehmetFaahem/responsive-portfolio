@@ -223,7 +223,7 @@ export default function Home() {
             className="absolute mobile:hidden laptop:flex outline-4 outline-double outline-blue-50 rounded-full mobile:top-[-50px] mobile:left-[0px] laptop:top-[-40px] laptop:left-[-45px]"
             src={Pic2}
           />
-          <h1 className="text-white mobile:bottom-[30px] laptop:bottom-[26%] absolute right-[40px] mobile:w-[70%] laptop:w-[60%] selection:bg-black font-medium laptop:text-[17px] mobile:text-[14px] mobile:text-center laptop:text-right">
+          <h1 className="text-white mobile:bottom-[30px] laptop:bottom-[26%] absolute right-[40px] mobile:w-[70%] laptop:w-[60%] selection:bg-black font-medium laptop:text-[17px] mobile:text-[90%] mobile:text-center laptop:text-right">
             As a dedicated React JS & React Native Developer, I am Fahey,
             bringing over 2 years of hands-on experience in crafting efficient
             and scalable solutions. Passionate about staying at the forefront of

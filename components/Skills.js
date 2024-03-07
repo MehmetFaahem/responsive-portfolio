@@ -25,7 +25,7 @@ function Skills() {
       </h1>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {Skills.map((data) => (
-          <div key={data.name} class="bg-slate-900/40 p-6 rounded-md shadow-md">
+          <div key={data.name} class="bg-slate-700/25 p-6 rounded-md shadow-md">
             <h2 class="text-xl font-bold mb-2 text-blue-200">{data.name}</h2>
             <p class="text-gray-200">Expertise: {data.expertise}</p>
           </div>
