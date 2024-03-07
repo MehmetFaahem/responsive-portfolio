@@ -172,10 +172,10 @@ export default function Home() {
         className="flex mobile:flex-col-reverse laptop:flex-row justify-between place-content-center place-items-center p-16"
       >
         <div className="mobile:place-items-center laptop:place-items-start flex flex-col">
-          <h1 className="p-2 mobile:mt-[50px] laptop:mt-0 text-blue-900 bg-gradient-to-r from-blue-200 to-cyan-200 mobile:text-4xl laptop:text-6xl font-fav mobile:text-center laptop:text-left font-bold">
+          <h1 className="p-2 mobile:mt-[50px] laptop:mt-0 text-blue-900 bg-gradient-to-r from-blue-200 to-cyan-200 mobile:text-[25px] laptop:text-6xl font-fav mobile:text-center laptop:text-left font-bold">
             Fahim Fahrey
           </h1>
-          <h1 className="laptop:text-3xl mt-[9px] mobile:text-[12px] text-blue-200 font-fav text-left font-thin">
+          <h1 className="laptop:text-3xl mt-[9px] mobile:text-[13px] text-blue-200 font-fav text-left font-thin">
             Full Stack Developer (MERN)
           </h1>
 
@@ -183,7 +183,7 @@ export default function Home() {
             <a
               href="https://drive.google.com/uc?export=download&id=1JhUUEA98eCgn8rDlv65P3yBXRLXwjftt"
               onClick={TimeOut}
-              className="p-4 z-10 t-[20px] hover:bg-blue-200 bg-white mobile:text-xl text-black laptop:text-2xl font-bold"
+              className="mobile:p-2 laptop:p-4 z-10 t-[20px] hover:bg-blue-200 bg-white mobile:text-[16px] text-black laptop:text-2xl font-bold"
             >
               {saving ? "CV Downloaded" : "Download CV"}
             </a>
@@ -223,7 +223,7 @@ export default function Home() {
             className="absolute mobile:hidden laptop:flex outline-4 outline-double outline-blue-50 rounded-full mobile:top-[-50px] mobile:left-[0px] laptop:top-[-40px] laptop:left-[-45px]"
             src={Pic2}
           />
-          <h1 className="text-white mobile:bottom-[30px] laptop:bottom-[26%] absolute right-[40px] mobile:w-[70%] laptop:w-[60%] selection:bg-black font-medium laptop:text-[17px] mobile:text-[11px] mobile:text-center laptop:text-right">
+          <h1 className="text-white mobile:bottom-[30px] laptop:bottom-[26%] absolute right-[40px] mobile:w-[70%] laptop:w-[60%] selection:bg-black font-medium laptop:text-[17px] mobile:text-[14px] mobile:text-center laptop:text-right">
             As a dedicated React JS & React Native Developer, I am Fahey,
             bringing over 2 years of hands-on experience in crafting efficient
             and scalable solutions. Passionate about staying at the forefront of
@@ -255,7 +255,7 @@ export default function Home() {
 
           <div
             style={{
-              height: "550px",
+              height: "570px",
             }}
             className="bg-gradient-to-r from-rose-900/50  to-sky-900 mt-10 relative overflow-hidden rounded-2xl w-full mobile:p-7 laptop:p-16 flex flex-row justify-end mobile:items-end laptop:items-center"
           >
@@ -292,12 +292,13 @@ export default function Home() {
             <div
               style={{
                 width: "100%",
+                marginBottom: "30px",
               }}
               className=" laptop:hidden h-80 mobile:flex left-0 top-0 absolute"
             >
               <img
                 src="https://i.ibb.co/9rHQHfw/softexsolution-com-Capturer.png"
-                className="h-[340px] shadow-lg rounded-2xl shadow-white hover:-translate-y-64 transition-all duration-700 w-full "
+                className="h-[340px] shadow-lg rounded-2xl shadow-white transition-all duration-700 w-full "
               />
             </div>
           </div>
@@ -344,7 +345,7 @@ export default function Home() {
             >
               <img
                 src="https://i.ibb.co/KLypYN7/imeichecker-vercel-app-Nest-Hub-Max.png"
-                className="h-[320px] shadow-lg rounded-2xl shadow-white hover:-translate-y-64 transition-all duration-700 w-full "
+                className="h-[320px] shadow-lg rounded-2xl shadow-white transition-all duration-700 w-full "
               />
             </div>
           </div>
