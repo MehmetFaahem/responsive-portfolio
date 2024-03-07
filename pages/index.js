@@ -175,7 +175,7 @@ export default function Home() {
           <h1 className="p-2 mobile:mt-[50px] laptop:mt-0 text-blue-900 bg-gradient-to-r from-blue-200 to-cyan-200 mobile:text-4xl laptop:text-6xl font-fav mobile:text-center laptop:text-left font-bold">
             Fahim Fahrey
           </h1>
-          <h1 className="laptop:text-3xl mt-[9px] mobile:text-xl text-blue-200 font-fav text-left font-thin">
+          <h1 className="laptop:text-3xl mt-[9px] mobile:text-[12px] text-blue-200 font-fav text-left font-thin">
             Full Stack Developer (MERN)
           </h1>
 
@@ -223,7 +223,7 @@ export default function Home() {
             className="absolute mobile:hidden laptop:flex outline-4 outline-double outline-blue-50 rounded-full mobile:top-[-50px] mobile:left-[0px] laptop:top-[-40px] laptop:left-[-45px]"
             src={Pic2}
           />
-          <h1 className="text-white mobile:bottom-[30px] laptop:bottom-[26%] absolute right-[40px] mobile:w-[70%] laptop:w-[60%] selection:bg-black font-medium laptop:text-[17px] mobile:text-[14px] mobile:text-center laptop:text-right">
+          <h1 className="text-white mobile:bottom-[30px] laptop:bottom-[26%] absolute right-[40px] mobile:w-[70%] laptop:w-[60%] selection:bg-black font-medium laptop:text-[17px] mobile:text-[11px] mobile:text-center laptop:text-right">
             As a dedicated React JS & React Native Developer, I am Fahey,
             bringing over 2 years of hands-on experience in crafting efficient
             and scalable solutions. Passionate about staying at the forefront of
@@ -260,7 +260,7 @@ export default function Home() {
             className="bg-gradient-to-r from-rose-900/50  to-sky-900 mt-10 relative overflow-hidden rounded-2xl w-full mobile:p-7 laptop:p-16 flex flex-row justify-end mobile:items-end laptop:items-center"
           >
             <div className="flex flex-col laptop:place-items-end">
-              <h1 className="mobile:text-2xl laptop:mt-0 mobile:mt-3 laptop:text-6xl text-orange-300 font-bold">
+              <h1 className="mobile:text-2xl laptop:mt-0 mobile:mt-[40px] laptop:text-6xl text-orange-300 font-bold">
                 Softex Solution
               </h1>
               <p className="mobile:text-sm text-blue-200 laptop:text-end laptop:text-2xl mobile:mt-2 laptop:mt-7 mobile:w-full laptop:w-2/5">
