@@ -59,7 +59,7 @@ a {
 }
 
 #introduction {
-  animation: gloring 5s cubic-bezier(0, 0, 0.5, 5) infinite;
+  animation: gloring 20s cubic-bezier(0, 0, 0.5, 5) infinite;
 }
 
 #movingItem {
@@ -73,56 +73,47 @@ a {
 
 @keyframes gloring {
   0% {
-    box-shadow: 0px 0px 10px 10px rgb(255, 0, 204);
+    box-shadow: 0px 0px 10px 10px rgb(92, 34, 80);
   }
 
   50% {
-    box-shadow: 0px 0px 10px 10px rgb(0, 166, 255);
+    box-shadow: 0px 0px 10px 10px rgb(99, 111, 153);
   }
 
   75% {
-    box-shadow: 0px 0px 10px 10px rgb(255, 255, 255);
+    box-shadow: 0px 0px 10px 10px rgb(216, 216, 216);
   }
 
   100% {
-    box-shadow: 0px 0px 10px 10px rgb(0, 0, 0);
+    box-shadow: 0px 0px 10px 10px rgb(99, 99, 99);
   }
 }
 
 @keyframes ping {
   0% {
-    transform: translateY(-5x);
-    color: aliceblue;
-    opacity: 0.5;
+    transform: scale(1) rotate(0deg);
+    opacity: 0.6;
   }
-
+  25% {
+    transform: scale(1.2) rotate(45deg);
+    opacity: 1;
+  }
   50% {
-    transform: translateY(-2x);
-    color: rgb(250, 79, 156);
-    opacity: 1;
+    transform: scale(1) rotate(90deg);
+    opacity: 0.6;
   }
-
   75% {
-    transform: translateX(2px);
-    color: rgb(255, 255, 255);
-    opacity: 0.5;
-  }
-
-  90% {
-    transform: translateX(2px);
-    color: rgb(0, 0, 0);
+    transform: scale(1.2) rotate(135deg);
     opacity: 1;
   }
-
   100% {
-    transform: translateY(-2px);
-    color: rgb(255, 255, 255);
-    opacity: 0.5;
+    transform: scale(1) rotate(180deg);
+    opacity: 0.6;
   }
 }
 
 #animate-ping {
-  animation: ping 0.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+  animation: ping 3s cubic-bezier(0, 0, 0.2, 1) infinite;
 }
 
 * {
