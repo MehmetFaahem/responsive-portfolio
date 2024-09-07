@@ -1,21 +1,29 @@
-"use-client";
 import Head from "next/head";
 import Image from "next/image";
-import { jsPDF } from "jspdf";
 import Link from "next/link";
-
-import React, { useState, useRef, useEffect } from "react";
-import Compiler, { ApiGenerator } from "./compiler";
+import React, { useState, useEffect } from "react";
+import dynamic from "next/dynamic";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { MenuOutlined } from "@ant-design/icons";
+import { Drawer, Button } from "antd";
 import Pic from "../public/pic.jpg";
 import Pic2 from "../public/pictwo.jpg";
 import Skills from "../components/Skills";
+import project_one from "../public/1.png";
+import project_two from "../public/2.png";
+import project_three from "../public/3.png";
+import SphereView from "../components/Sphere";
+
+const NoSSRCompiler = dynamic(() => import("./compiler"), { ssr: false });
 
 export default function Home() {
   const [saving, setSaving] = useState(false);
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [visible, setVisible] = useState(true);
+  const [isClient, setIsClient] = useState(false);
+  const [drawerVisible, setDrawerVisible] = useState(false);
+  const [downloading, setDownloading] = useState("Download Resume");
 
   const handleScroll = () => {
     const currentScrollPos = window.scrollY;
@@ -32,48 +40,52 @@ export default function Home() {
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  });
+  }, [prevScrollPos]);
 
   useEffect(() => {
     const mover = document.getElementById("movingItem");
 
-    document.onmousemove = function (e) {
-      mover.style.left = e.pageX - 170 + "px";
-      mover.style.top = e.pageY - 170 + "px";
-      mover.style.display = "block";
-      mover.style.opacity = 0.5;
-    };
+    if (mover) {
+      document.onmousemove = function (e) {
+        mover.style.left = e.pageX - 170 + "px";
+        mover.style.top = e.pageY - 170 + "px";
+        mover.style.display = "block";
+        mover.style.opacity = 0.5;
+      };
+    }
   }, []);
 
-  function saveResume() {
-    setSaving(true);
-    var doc = new jsPDF("portrait", "px", "a4", false);
-    doc.addImage(
-      "https://resumefahimfahrey.tiiny.site/ea273817-e2b2-4e60-86d8-f23268f1ca6b",
-      "JPG",
-      0,
-      0,
-      417,
-      653
-    );
-    doc.save("resume.pdf");
-    setSaving(false);
-  }
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   function TimeOut() {
+    setDownloading("Downloading...");
     setTimeout(() => {
       setSaving(true);
-    }, 2000);
+    }, 3000);
+  }
+
+  const showDrawer = () => {
+    setDrawerVisible(true);
+  };
+
+  const closeDrawer = () => {
+    setDrawerVisible(false);
+  };
+
+  if (!isClient) {
+    return null;
   }
 
   return (
     <div className="flex flex-1 flex-col place-content-center">
       <Head>
-        <title>Faahem</title>
+        <title>Fahim Fahrey</title>
         <meta name="description" content="MERN Stack Developer" />
         <link rel="icon" href="https://i.ibb.co/2hVHJFt/Covdffer.png" />
       </Head>
-
+      <SphereView />
       <div
         id="movingItem"
         style={{
@@ -116,7 +128,7 @@ export default function Home() {
           </Link>
           <Link href="#insp">
             <h1 className="font-bold p-4 rounded-xl hover:bg-slate-500/50 text-red-100">
-              Instant Projects
+              JS Projects
             </h1>
           </Link>
           <Link href="#mernp">
@@ -132,7 +144,7 @@ export default function Home() {
           id="NavheaderForphone"
           className="bg-white/40 mobile:flex laptop:hidden transition-all duration-500 w-full place-self-center z-50 flex-col place-content-center place-items-center justify-between static top-0"
         >
-          <div className="flex ml-4 overflow-x-scroll transition-all duration-500 space-x-3 my-2 place-content-end mx-4 place-items-center">
+          <div className="flex justify-between w-full p-4">
             <Link className="mr-2" href="https://github.com/MehmetFaahem">
               <FontAwesomeIcon
                 icon={faGithub}
@@ -141,6 +153,18 @@ export default function Home() {
                 color="white"
               />
             </Link>
+            <Button
+              type="primary"
+              icon={<MenuOutlined />}
+              onClick={showDrawer}
+            />
+          </div>
+          <Drawer
+            title="Menu"
+            placement="right"
+            onClose={closeDrawer}
+            visible={drawerVisible}
+          >
             <Link href="#introduction">
               <h1 className="font-bold rounded-3xl p-2 bg-white hover:bg-slate-500/50 text-black">
                 Intro
@@ -161,7 +185,7 @@ export default function Home() {
                 MERN
               </h1>
             </Link>
-          </div>
+          </Drawer>
         </div>
       ) : null}
       <div
@@ -181,11 +205,11 @@ export default function Home() {
 
           <div className="mt-[60px]">
             <a
-              href="https://drive.google.com/uc?export=download&id=1JhUUEA98eCgn8rDlv65P3yBXRLXwjftt"
+              href="https://drive.google.com/uc?export=download&id=1O8W3FMYkVukmVnm0Rp2dxgiGi7bk7yb4"
               onClick={TimeOut}
               className="mobile:p-2 laptop:p-4 z-10 t-[20px] hover:bg-blue-200 bg-white mobile:text-[16px] text-black laptop:text-2xl font-bold"
             >
-              {saving ? "CV Downloaded" : "Download CV"}
+              {saving ? "Downloaded" : downloading}
             </a>
           </div>
         </div>
@@ -252,103 +276,96 @@ export default function Home() {
           <h1 className="text-center laptop:w-full laptop:inline-block mobile:flex content-center font-bold mobile:text-4xl laptop:text-7xl text-white mb-6">
             <h1>MERN Projects</h1>
           </h1>
+          {[
+            {
+              title: "ERP Software",
+              description:
+                "This ERP software streamlines business processes by integrating various functions such as accounting, inventory management, and human resources into a single system. It enhances efficiency, accuracy, and productivity by providing real-time data and analytics, enabling informed decision-making and improved overall performance.",
 
-          <div
-            style={{
-              height: "570px",
-            }}
-            className="bg-gradient-to-r from-rose-900/50  to-sky-900 mt-10 relative overflow-hidden rounded-2xl w-full mobile:p-7 laptop:p-16 flex flex-row justify-end mobile:items-end laptop:items-center"
-          >
-            <div className="flex flex-col laptop:place-items-end">
-              <h1 className="mobile:text-2xl laptop:mt-0 mobile:mt-[40px] laptop:text-6xl text-orange-300 font-bold">
-                Softex Solution
-              </h1>
-              <p className="mobile:text-sm text-blue-200 laptop:text-end laptop:text-2xl mobile:mt-2 laptop:mt-7 mobile:w-full laptop:w-2/5">
-                This is a Software Service Provider Agency. People can take
-                services from this site as like shedule a meeting. And anyone
-                can apply for a job from here.{" "}
-                <span>
-                  <a
-                    className="pt-10 mobile:text-sm laptop:text-xl text-orange-200"
-                    href="https://softexsolution.com/"
-                  >
-                    Click To Visit
-                  </a>
-                </span>
-              </p>
-            </div>
+              image: project_three,
+              gradient: "from-sky-900/30 to-rose-900/50",
+              justify: "justify-start",
+              textAlign: "laptop:w-1/2 laptop:text-left",
+              hoverTranslate: "hover:-translate-y-[37%]",
+              duration: "duration-[5000ms]",
+              imagePosition: "right-0 top-0",
+            },
+            {
+              title: "Softex Solution",
+              description:
+                "This is a Software Service Provider Agency. People can take services from this site as like schedule a meeting. And anyone can apply for a job from here.",
+              link: "https://softexsolution.com/",
+              image: project_one,
+              gradient: "from-rose-900/50 to-sky-900/30",
+              justify: "justify-end",
+              textAlign:
+                "laptop:place-items-end laptop:w-[50%] laptop:text-right",
+              hoverTranslate: "hover:-translate-y-[83%]",
+              duration: "duration-[10000ms]",
+              imagePosition: "left-0 top-0",
+            },
+            {
+              title: "IMEI Web",
+              description:
+                "Using this web tool, you can check your phone's info. Also you can Unlock, Bypass and Remove including IOS or IPhone.",
+              link: "https://www.imeiweb.com/",
+              image: project_two,
+              gradient: "from-sky-900/30 to-rose-900/50",
+              justify: "justify-start",
+              textAlign: "laptop:w-1/2 laptop:text-left",
+              hoverTranslate: "hover:-translate-y-[40%]",
+              duration: "duration-[5000ms]",
+              imagePosition: "right-0 top-0",
+            },
+          ].map((project, index) => (
+            <div
+              key={index}
+              className={`h-[470px] backdrop-blur-[1px] bg-gradient-to-r ${project.gradient} mt-10 relative overflow-hidden rounded-2xl w-full mobile:p-7 laptop:p-16 flex flex-row ${project.justify} mobile:items-end laptop:items-center`}
+            >
+              <div className={`flex flex-col ${project.textAlign}`}>
+                <h1 className="text-xl laptop:text-6xl text-orange-300 font-bold laptop:mt-0 mobile:mt-[40px]">
+                  {project.title}
+                </h1>
+                <p className="mobile:text-sm text-blue-200 laptop:text-2xl mobile:mt-2 laptop:mt-7">
+                  {project.description}{" "}
+                  {project.link && (
+                    <span>
+                      <a
+                        className="pt-10 mobile:text-sm laptop:text-xl text-orange-200"
+                        href={project.link}
+                      >
+                        Click To Visit
+                      </a>
+                    </span>
+                  )}
+                </p>
+              </div>
 
-            <div
-              style={{
-                width: "600px",
-              }}
-              className="laptop:flex mobile:hidden left-0 top-0 absolute"
-            >
-              <img
-                src="https://i.ibb.co/9rHQHfw/softexsolution-com-Capturer.png"
-                className="h-full hover:-translate-y-96 rounded-2xl transition-all duration-700 w-auto "
-              />
+              <div
+                style={{
+                  width: "600px",
+                }}
+                className={`laptop:flex mobile:hidden absolute ${project.imagePosition}`}
+              >
+                <Image
+                  src={project.image}
+                  className={`h-full ${project.hoverTranslate} rounded-2xl transition-all ${project.duration} w-[600px] object-cover`}
+                />
+              </div>
+              <div
+                style={{
+                  width: "100%",
+                  marginBottom: "30px",
+                }}
+                className="laptop:hidden h-80 mobile:flex left-0 top-0 absolute"
+              >
+                <Image
+                  src={project.image}
+                  className="h-[300px] shadow-lg rounded-2xl shadow-white transition-all duration-700 w-full object-cover"
+                />
+              </div>
             </div>
-            <div
-              style={{
-                width: "100%",
-                marginBottom: "30px",
-              }}
-              className=" laptop:hidden h-80 mobile:flex left-0 top-0 absolute"
-            >
-              <img
-                src="https://i.ibb.co/9rHQHfw/softexsolution-com-Capturer.png"
-                className="h-[340px] shadow-lg rounded-2xl shadow-white transition-all duration-700 w-full "
-              />
-            </div>
-          </div>
-          <div
-            style={{
-              height: "530px",
-            }}
-            className="bg-gradient-to-r from-sky-900  to-rose-900/50 mt-10 relative overflow-hidden rounded-2xl w-full mobile:p-7 laptop:p-16 flex flex-row justify-start mobile:items-end laptop:items-center"
-          >
-            <div>
-              <h1 className="mobile:text-2xl laptop:mt-0 mobile:mt-10 laptop:text-6xl text-orange-300 font-bold">
-                IMEI Web
-              </h1>
-              <p className="mobile:text-sm text-blue-200 laptop:text-2xl mobile:mt-2 laptop:mt-7 mobile:w-full laptop:w-1/2">
-                Using this web tool, you can check your phone&apos;s info. Also
-                you can Unlock, Bypass and Remove including IOS or IPhone.{" "}
-                <span>
-                  <a
-                    className="pt-10 mobile:text-sm laptop:text-xl text-orange-200"
-                    href="https://www.imeiweb.com/"
-                  >
-                    Click To Visit
-                  </a>
-                </span>
-              </p>
-            </div>
-
-            <div
-              style={{
-                width: "600px",
-              }}
-              className="laptop:flex mobile:hidden right-0 top-0 absolute"
-            >
-              <img
-                src="https://i.ibb.co/KLypYN7/imeichecker-vercel-app-Nest-Hub-Max.png"
-                className="h-full hover:-translate-y-64 rounded-2xl transition-all duration-700 w-auto "
-              />
-            </div>
-            <div
-              style={{
-                width: "100%",
-              }}
-              className="laptop:hidden mobile:flex left-0 top-0 absolute"
-            >
-              <img
-                src="https://i.ibb.co/KLypYN7/imeichecker-vercel-app-Nest-Hub-Max.png"
-                className="h-[320px] shadow-lg rounded-2xl shadow-white transition-all duration-700 w-full "
-              />
-            </div>
-          </div>
+          ))}
         </div>
       </div>
       <div
@@ -358,7 +375,7 @@ export default function Home() {
       >
         <div id="insp">
           <h1 className="text-center mt-10 font-bold mobile:text-4xl laptop:text-7xl text-white mb-6">
-            <h1>Instant Projects</h1>
+            <h1>JS Projects</h1>
           </h1>
 
           <div className="bg-gradient-to-r from-rose-900/25 to-slate-900 rounded-2xl p-10 m-16">
@@ -366,11 +383,10 @@ export default function Home() {
               <h1 className="text-2xl mt-4 mb-4">JavaScript</h1>
               <h1 className="bg-yellow-400 ml-4 text-black p-3 text-3xl">JS</h1>
             </div>
-            <Compiler />
+            <NoSSRCompiler />
           </div>
         </div>
       </div>
     </div>
   );
-  1;
 }

@@ -1,43 +1,42 @@
-import React, { useRef, useState } from "react";
-import { useRouter } from "next/router";
+import React, { useState } from "react";
 
 const ones = [
   "",
-  "one",
-  "two",
-  "three",
-  "four",
-  "five",
-  "six",
-  "seven",
-  "eight",
-  "nine",
+  "One",
+  "Two",
+  "Three",
+  "Four",
+  "Five",
+  "Six",
+  "Seven",
+  "Eight",
+  "Nine",
 ];
 
 const tens = [
-  "ten",
-  "eleventh",
-  "twelve",
-  "thirteen",
-  "fourteen",
-  "fifteen",
-  "sixteen",
-  "seventeen",
-  "eighteen",
-  "ninteen",
+  "Ten",
+  "Eleven",
+  "Twelve",
+  "Thirteen",
+  "Fourteen",
+  "Fifteen",
+  "Sixteen",
+  "Seventeen",
+  "Eighteen",
+  "Nineteen",
 ];
 
 const teens = [
   "",
   "",
-  "twenty",
-  "thirty",
-  "fourty",
-  "fifty",
-  "sixty",
-  "seventy",
-  "eighty",
-  "ninety",
+  "Twenty",
+  "Thirty",
+  "Forty",
+  "Fifty",
+  "Sixty",
+  "Seventy",
+  "Eighty",
+  "Ninety",
 ];
 
 function compileTrillion(num) {
@@ -111,91 +110,8 @@ function compileTeen(num) {
   }
 }
 
-export function ApiGenerator() {
-  const [field, setField] = useState({
-    Parent: "",
-    currentKey: "",
-    currentValue: "",
-    Childs: {
-      Data: [{}],
-    },
-  });
-  const [json, setJson] = useState(JSON.stringify(field.Childs, null, 2));
-  return (
-    <div className="mt-10 flex laptop:flex-row mobile:flex-col justify-between place-items-center">
-      <div>
-        {/* <section>
-          <p className="text-xl text-white font-medium py-3">Parent</p>
-          <input
-            value={field.Parent}
-            onChange={(e) => setField({ ...field, Parent: e.target.value })}
-            className="p-4 bg-black/50 rounded-xl text-white"
-            placeholder="Parent"
-          />
-        </section> */}
-        <section>
-          <p className="laptop:ml-1 mobile:ml-0 mobile:text-sm laptop:text-left mobile:text-center laptop:text-xl text-white font-medium py-3">
-            Keys and Values
-          </p>
-          <div className="flex mobile:items-center laptop:flex-row mobile:flex-col mobile:space-y-3 laptop:space-y-0 laptop:space-x-3">
-            <input
-              className="p-4 bg-black/50 w-11/12 rounded-xl text-white"
-              value={field.currentKey}
-              onChange={(e) =>
-                setField({ ...field, currentKey: e.target.value })
-              }
-              placeholder="Key"
-            />
-            <input
-              className="p-4 bg-black/50 w-11/12 rounded-xl text-white"
-              value={field.currentValue}
-              onChange={(e) =>
-                setField({ ...field, currentValue: e.target.value })
-              }
-              placeholder="Value"
-            />
-          </div>
-        </section>
-        <section className="flex justify-center">
-          <button
-            onClick={() => {
-              Object.assign(field.Childs.Data[0], {
-                [field.currentKey]: field.currentValue,
-              });
-
-              setJson(JSON.stringify(field.Childs, null, 2));
-              setField({ ...field, currentKey: "", currentValue: "" });
-              console.log(field.Childs);
-            }}
-            className="bg-black p-4 text-sm text-white rounded-xl mt-10"
-          >
-            Add to API
-          </button>
-        </section>
-        {/* <button
-          onClick={() => {}}
-          className="bg-black text-sm p-4 ml-4 text-white rounded-xl mt-10"
-        >
-          Get Url
-        </button> */}
-      </div>
-      <div
-        style={{
-          height: "500px",
-          overflowY: "scroll",
-        }}
-        className="mobile:p-5 laptop:p-10 laptop:w-1/2 mobile:w-full laptop:mt-0 mobile:mt-10 bg-black/50 text-white rounded-2xl"
-      >
-        <pre>
-          <code className="mobile:text-xs laptop:text-3xl">{json}</code>
-        </pre>
-      </div>
-    </div>
-  );
-}
-
 function Compiler() {
-  const [number, setNumber] = useState(0);
+  const [number, setNumber] = useState(143);
 
   return (
     <div className="laptop:p-16 mobile:p-3 place-content-center place-items-center flex flex-col flex-1">
@@ -207,7 +123,7 @@ function Compiler() {
       <input
         type="number"
         value={number}
-        min={0}
+        min={1}
         max={9999999999999999}
         onChange={(e) => setNumber(e.target.value)}
         className="laptop:text-3xl mobile:text-xl mt-2 laptop:h-20 mobile:h-7 text-center w-11/12 p-6 rounded-xl bg-pink-600/20 text-white"
