@@ -16,12 +16,7 @@ function Skills() {
       { name: "PostgreSQL", expertise: "Intermediate" },
       { name: "MongoDB", expertise: "Intermediate" },
     ],
-    Technologies: [
-      { name: "React JS", expertise: "Advanced" },
-      { name: "HTML5", expertise: "Intermediate" },
-      { name: "CSS3", expertise: "Intermediate" },
-      { name: "Sass (scss)", expertise: "Intermediate" },
-    ],
+
     "CSS Frameworks": [
       { name: "TailwindCSS", expertise: "Intermediate" },
       { name: "Bootstrap", expertise: "Intermediate" },
@@ -42,6 +37,12 @@ function Skills() {
       { name: "Trello", expertise: "Intermediate" },
       { name: "VS Code", expertise: "Intermediate" },
       { name: "Anaconda", expertise: "Intermediate" },
+    ],
+    Technologies: [
+      { name: "React JS", expertise: "Advanced" },
+      { name: "HTML5", expertise: "Intermediate" },
+      { name: "CSS3", expertise: "Intermediate" },
+      { name: "Sass (scss)", expertise: "Intermediate" },
     ],
   };
 

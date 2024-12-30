@@ -4,7 +4,7 @@ import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { MenuOutlined } from "@ant-design/icons";
 import { Drawer, Button } from "antd";
 import Pic from "../public/pic.jpg";
@@ -14,7 +14,9 @@ import project_one from "../public/1.png";
 import project_two from "../public/2.png";
 import project_three from "../public/3.png";
 import project_four from "../public/4.png";
+import project_five from "../public/5.png";
 import SphereView from "../components/Sphere";
+import { CloseOutlined } from "@ant-design/icons";
 
 const NoSSRCompiler = dynamic(() => import("./compiler"), { ssr: false });
 
@@ -96,7 +98,7 @@ export default function Home() {
       />
       <div
         id="Navheader"
-        className="bg-gradient-to-r from-black/60 via-purple-900/60 to-black/60 backdrop-blur-md z-50 laptop:flex mobile:hidden place-items-center justify-between sticky top-0 border-b border-white/10"
+        className="bg-gradient-to-r from-black/10 via-purple-900/10 to-black/10 backdrop-blur-md z-50 laptop:flex mobile:hidden place-items-center justify-between sticky top-0 border-b border-white/10"
       >
         <div className="flex space-x-3 p-4 place-items-center group">
           <span className="transition-transform duration-300 group-hover:scale-110">
@@ -115,6 +117,7 @@ export default function Home() {
           <Link
             className="transform hover:scale-110 transition-all duration-300"
             href="https://github.com/MehmetFaahem"
+            target="_blank"
           >
             <FontAwesomeIcon
               icon={faGithub}
@@ -123,7 +126,19 @@ export default function Home() {
               className="text-white hover:text-purple-400 transition-colors duration-300"
             />
           </Link>
-          {["Introduction", "Skills", "JS Projects", "Full Stack Projects"].map(
+          <Link
+            className="transform hover:scale-110 transition-all duration-300"
+            href="https://www.linkedin.com/in/muhammad-faahem/"
+            target="_blank"
+          >
+            <FontAwesomeIcon
+              icon={faLinkedin}
+              height="30"
+              width="30"
+              className="text-white hover:text-purple-400 transition-colors duration-300"
+            />
+          </Link>
+          {["Introduction", "Skills", "Projects", "Fun JS Project"].map(
             (item, i) => (
               <Link key={i} href={`#${item.toLowerCase().replace(" ", "")}`}>
                 <h1 className="font-medium px-4 py-2 rounded-xl hover:bg-white/10 text-blue-200 hover:text-purple-300 transition-all duration-300 border border-transparent hover:border-white/20">
@@ -141,17 +156,31 @@ export default function Home() {
           className="backdrop-blur-md bg-gradient-to-r from-black/40 via-purple-900/40 to-black/40 mobile:flex laptop:hidden transition-all duration-500 w-full place-self-center z-50 flex-col place-content-center place-items-center justify-between static top-0 border-b border-white/10"
         >
           <div className="flex justify-between w-full p-4">
-            <Link
-              className="transform hover:scale-110 transition-all duration-300"
-              href="https://github.com/MehmetFaahem"
-            >
-              <FontAwesomeIcon
-                icon={faGithub}
-                height="35"
-                width="35"
-                className="text-white hover:text-purple-400 transition-colors duration-300"
-              />
-            </Link>
+            <div className="flex space-x-4 place-items-center">
+              <Link
+                className="transform hover:scale-110 transition-all duration-300"
+                href="https://github.com/MehmetFaahem"
+              >
+                <FontAwesomeIcon
+                  icon={faGithub}
+                  height="35"
+                  width="35"
+                  className="text-white hover:text-purple-400 transition-colors duration-300"
+                />
+              </Link>
+              <Link
+                className="transform hover:scale-110 transition-all duration-300"
+                href="https://www.linkedin.com/in/muhammad-faahem/"
+                target="_blank"
+              >
+                <FontAwesomeIcon
+                  icon={faLinkedin}
+                  height="30"
+                  width="30"
+                  className="text-white hover:text-purple-400 transition-colors duration-300"
+                />
+              </Link>
+            </div>
             <Button
               type="primary"
               icon={<MenuOutlined />}
@@ -160,13 +189,22 @@ export default function Home() {
             />
           </div>
           <Drawer
-            title="Menu"
+            title=""
             placement="right"
             onClose={closeDrawer}
             visible={drawerVisible}
-            className="!bg-gradient-to-b from-slate-900 to-purple-900"
+            className="!bg-gradient-to-b from-slate-900 to-purple-900 !text-white relative"
+            closeIcon={<CloseOutlined />}
           >
-            {["Intro", "Skills", "Projects", "Full Stack Projects"].map(
+            <CloseOutlined
+              height="30"
+              width="30"
+              color="white"
+              fontSize="20px"
+              className="absolute top-10 left-6"
+              onClick={closeDrawer}
+            />
+            {["Intro", "Skills", "Projects", "Fun JS Project"].map(
               (item, i) => (
                 <Link key={i} href={`#${item.toLowerCase().replace(" ", "")}`}>
                   <h1 className="font-medium my-2 p-3 rounded-xl bg-white/10 hover:bg-white/20 text-blue-200 hover:text-purple-300 transition-all duration-300 border border-white/10">
@@ -230,8 +268,9 @@ export default function Home() {
         style={{
           zIndex: 30,
         }}
+        id="introduction"
       >
-        <h1 className="text-center font-bold mobile:text-4xl laptop:text-7xl bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 text-transparent bg-clip-text mb-12 animate-pulse">
+        <h1 className="text-center font-bold mobile:text-3xl tablet:text-5xl laptop:text-7xl bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 text-transparent bg-clip-text mb-12 animate-pulse">
           Introduction
         </h1>
 
@@ -240,20 +279,17 @@ export default function Home() {
           <div className="animate-pulse-slow absolute bottom-1/4 right-1/4 w-32 h-32 bg-purple-500/20 rounded-full blur-xl" />
         </div>
 
-        <div
-          id="introduction"
-          className="relative flex flex-row items-center overflow-hidden mt-[30px] w-[69%] mobile:h-[auto] laptop:h-[280px] z-40 backdrop-blur-lg bg-gradient-to-r from-blue-900/40 via-purple-900/40 to-pink-900/40 rounded-2xl p-8 border border-white/10 hover:border-white/20 transition-all duration-500 group hover:scale-[1.02] shadow-2xl"
-        >
+        <div className="relative flex mobile:flex-col laptop:flex-row items-center overflow-hidden mt-[30px] mobile:w-[95%] tablet:w-[85%] laptop:w-[69%] mobile:h-auto laptop:h-auto z-40 backdrop-blur-lg bg-gradient-to-r from-blue-900/40 via-purple-900/40 to-pink-900/40 rounded-2xl p-8 border border-white/10 hover:border-white/20 transition-all duration-500 group hover:scale-[1.02] shadow-2xl">
           <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
           <Image
             height={"320"}
             width={"320"}
-            className="absolute mobile:hidden laptop:flex rounded-full mobile:top-[-50px] mobile:left-[0px] laptop:top-[-40px] laptop:left-[-45px] transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6 shadow-2xl ring-2 ring-white/20 group-hover:ring-white/40"
+            className="mobile:relative object-cover laptop:absolute mobile:mb-6 laptop:mb-0 rounded-full mobile:w-[200px] laptop:w-[320px] mobile:h-[200px] laptop:h-[320px] laptop:top-[-40px] laptop:left-[-45px] transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6 shadow-2xl ring-2 ring-white/20 group-hover:ring-white/40"
             src={Pic2}
           />
 
-          <h1 className="text-white/90 group-hover:text-white text-right laptop:ml-[40%] mobile:bottom-[30px] laptop:bottom-[26%] right-[40px] mobile:w-[100%] laptop:w-[70%] selection:bg-purple-900/50 font-light laptop:text-[20px] mobile:text-[12px] mobile:text-center laptop:text-right transition-all duration-500 leading-relaxed">
+          <h1 className="text-white/90 group-hover:text-white mobile:text-center laptop:text-right mobile:w-full laptop:w-[70%] laptop:ml-[40%] selection:bg-purple-900/50 font-light mobile:text-[14px] tablet:text-[16px] laptop:text-[20px] transition-all duration-500 leading-relaxed">
             Skilled Full Stack Developer with over 3 Years of experience in
             building responsive, user-friendly web applications using React,
             Node.js, and modern CSS frameworks as like TailwindCSS. Strong
@@ -273,11 +309,12 @@ export default function Home() {
           zIndex: 90,
         }}
         className="relative py-20 px-8"
+        id="projects"
       >
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-900/20 to-transparent pointer-events-none" />
 
         <div id="mernp" className="max-w-7xl mx-auto">
-          <h1 className="text-center font-extrabold mobile:text-5xl laptop:text-8xl text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600 mb-16 animate-pulse">
+          <h1 className="text-center font-extrabold mobile:text-5xl laptop:text-8xl text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600 pb-16 animate-pulse">
             Projects
           </h1>
 
@@ -290,25 +327,43 @@ export default function Home() {
               image: project_four,
               gradient: "from-indigo-900/40 via-purple-900/40 to-pink-900/40",
               justify: "justify-start",
-              textAlign: "laptop:w-1/2 laptop:text-left",
+              textAlign:
+                "mobile:w-full tablet:w-3/4 laptop:w-1/2 laptop:text-left",
               hoverTranslate: "hover:-translate-y-[0%]",
               duration: "duration-[1000ms]",
               imagePosition: "right-0 top-0 scale-[1.1]",
+              github: "https://github.com/MehmetFaahem/Genwri",
+            },
+            {
+              title: "Advanced Admin Panel",
+              description:
+                "Using this admin panel, you can manage your website and customers. You can add, edit, delete users and also you can manage your website content.",
+              link: "https://bilashi.vercel.app/admin/dashboard",
+              image: project_five,
+              gradient: "from-indigo-900/40 via-purple-900/40 to-pink-900/40",
+              justify: "justify-start",
+              textAlign:
+                "mobile:w-full tablet:w-3/4 laptop:w-1/2 laptop:text-left",
+              hoverTranslate: "hover:-translate-y-[0%]",
+              duration: "duration-[1000ms]",
+              imagePosition: "right-0 top-0 scale-[1.15]",
+              github: "https://github.com/MehmetFaahem/bilash",
             },
             {
               title: "ERP Software",
               description:
                 "This ERP software streamlines business processes by integrating various functions such as accounting, inventory management, and human resources into a single system. ",
+              link: null,
               image: project_three,
-              gradient: "from-pink-900/40 via-purple-900/40 to-indigo-900/40",
-              justify: "justify-end",
+              gradient: "from-indigo-900/40 via-purple-900/40 to-pink-900/40",
+              justify: "justify-start",
               textAlign:
-                "laptop:place-items-end laptop:w-[50%] laptop:text-right",
-              hoverTranslate: "hover:-translate-y-[17%]",
+                "mobile:w-full tablet:w-3/4 laptop:w-1/2 laptop:text-left",
+              hoverTranslate: "hover:-translate-y-[10%]",
               duration: "duration-[1000ms]",
-              imagePosition: "left-0 top-0 ",
+              imagePosition: "right-0 top-0",
+              github: null,
             },
-
             {
               title: "IMEI Web",
               description:
@@ -317,10 +372,12 @@ export default function Home() {
               image: project_two,
               gradient: "from-indigo-900/40 via-purple-900/40 to-pink-900/40",
               justify: "justify-start",
-              textAlign: "laptop:w-1/2 laptop:text-left",
+              textAlign:
+                "mobile:w-full tablet:w-3/4 laptop:w-1/2 laptop:text-left",
               hoverTranslate: "hover:-translate-y-[10%]",
               duration: "duration-[1000ms]",
-              imagePosition: "right-0 top-0 ",
+              imagePosition: "right-0 top-0",
+              github: null,
             },
           ].map((project, index) => (
             <div key={index} className="group mb-16 last:mb-0">
@@ -330,36 +387,53 @@ export default function Home() {
                 backdrop-blur-sm bg-gradient-to-r ${project.gradient}
                 border border-white/10 hover:border-white/20
                 transition-all duration-500 ease-out
-                mobile:p-7 laptop:p-16
+                 tablet:p-8 laptop:p-16
                 transform hover:scale-[1.02]
                 hover:shadow-2xl hover:shadow-purple-500/20 h-auto
               `}
               >
                 <div
-                  className={`flex flex-row ${project.justify} mobile:items-end laptop:items-center min-h-[470px]`}
+                  className={`flex flex-row ${project.justify} mobile:items-end laptop:items-center
+                    laptop:min-h-[470px] tablet:min-h-[380px] mobile:min-h-[300px]`}
                 >
                   <div
-                    className={`flex flex-col ${project.textAlign} relative z-10`}
+                    className={`flex flex-col ${project.textAlign} relative z-10 shadow-4xl shadow-purple-500/20 mobile:bg-black/80 laptop:bg-transparent   tablet:rounded-[30px]  mobile:p-4 tablet:p-8 laptop:p-16`}
                   >
-                    <h1 className="text-xl laptop:text-6xl font-bold laptop:mt-0 mobile:mt-[40px] mb-4">
+                    <h1
+                      className={`mobile:text-lg tablet:text-2xl laptop:text-6xl font-bold laptop:mt-0 mobile:mt-[0px] mb-4`}
+                    >
                       <span className="bg-clip-text text-transparent bg-gradient-to-r from-orange-300 via-pink-300 to-purple-300">
                         {project.title}
                       </span>
                     </h1>
-                    <p className="mobile:text-sm laptop:text-2xl mobile:mt-2 laptop:mt-7 text-blue-100/90 leading-relaxed">
+                    <p className="mobile:text-xs tablet:text-sm laptop:text-2xl mobile:mt-2 laptop:mt-7 text-blue-100/90 leading-relaxed pr-10">
                       {project.description}{" "}
-                      {project.link && (
-                        <a
-                          className="w-fit block mt-6 px-6 py-3 bg-white/10 hover:bg-white/20 rounded-lg
+                      <div className="flex flex-row space-x-4">
+                        {project.link && (
+                          <a
+                            className="w-fit block mt-6 px-6 py-3 bg-white/10 hover:bg-white/20 rounded-lg
                           text-orange-200 hover:text-orange-100 transition-all duration-300
-                          mobile:text-sm laptop:text-xl "
-                          href={project.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          Visit Project →
-                        </a>
-                      )}
+                          mobile:text-xs tablet:text-sm laptop:text-xl"
+                            href={project.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            Visit Project →
+                          </a>
+                        )}
+                        {project.github && (
+                          <a
+                            className="inline-block mt-6 px-6 py-3 bg-white/10 hover:bg-white/20 rounded-lg
+                          text-orange-200 hover:text-orange-100 transition-all duration-300
+                          mobile:text-xs tablet:text-sm laptop:text-xl"
+                            href={project.github}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <FontAwesomeIcon icon={faGithub} />
+                          </a>
+                        )}
+                      </div>
                     </p>
                   </div>
 
@@ -369,7 +443,7 @@ export default function Home() {
                     <Image
                       src={project.image}
                       className={`
-                        h-full w-[600px] object-cover rounded-2xl
+                        h-full w-[600px] object-cover 
                         ${project.hoverTranslate} 
                         transition-all ${project.duration}
                         shadow-lg shadow-black/20
@@ -377,10 +451,10 @@ export default function Home() {
                       `}
                     />
                   </div>
-                  <div className="laptop:hidden mobile:flex absolute left-0 top-0 w-full h-80 mb-[30px]">
+                  <div className="laptop:hidden mobile:flex absolute left-0 top-0 w-full mobile:h-60 tablet:h-80 mb-[30px]">
                     <Image
                       src={project.image}
-                      className="h-[300px] w-full object-cover rounded-2xl shadow-lg transition-all duration-700"
+                      className="mobile:h-[200px] tablet:h-[300px] w-full object-cover rounded-2xl shadow-lg transition-all duration-700"
                     />
                   </div>
                 </div>
@@ -393,6 +467,7 @@ export default function Home() {
         style={{
           zIndex: 90,
         }}
+        id="funjs%20project"
       >
         <div id="insp" className="py-10">
           <h1 className="text-center mt-10 font-bold mobile:text-4xl laptop:text-7xl text-white mb-6">

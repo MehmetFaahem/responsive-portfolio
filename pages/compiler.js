@@ -158,7 +158,7 @@ function Compiler() {
   };
 
   return (
-    <div className="laptop:p-16 mobile:p-3 rounded-2xl  mt-10 place-content-center place-items-center flex flex-col bg-gradient-to-r from-blue-900/40 via-purple-900/40 to-pink-900/40 max-w-7xl mx-auto">
+    <div className="laptop:p-16 mobile:p-3 rounded-2xl w-[80%]  mt-10 place-content-center place-items-center flex flex-col bg-gradient-to-r from-blue-900/40 via-purple-900/40 to-pink-900/40 max-w-7xl mx-auto">
       <h1 className="laptop:text-5xl mobile:text-sm text-white text-center mobile:mt-6 laptop:mt-0 mobile:p-2 laptop:p-10">
         <code>
           Input any positive number you know. I will convert it into text format
