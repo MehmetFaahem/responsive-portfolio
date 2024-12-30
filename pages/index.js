@@ -13,6 +13,7 @@ import Skills from "../components/Skills";
 import project_one from "../public/1.png";
 import project_two from "../public/2.png";
 import project_three from "../public/3.png";
+import project_four from "../public/4.png";
 import SphereView from "../components/Sphere";
 
 const NoSSRCompiler = dynamic(() => import("./compiler"), { ssr: false });
@@ -81,8 +82,8 @@ export default function Home() {
   return (
     <div className="flex flex-1 flex-col place-content-center">
       <Head>
-        <title>Fahim Fahrey</title>
-        <meta name="description" content="MERN Stack Developer" />
+        <title>Muhammad Fahim</title>
+        <meta name="description" content="Full Stack Software Engineer" />
         <link rel="icon" href="https://i.ibb.co/2hVHJFt/Covdffer.png" />
       </Head>
       <SphereView />
@@ -95,68 +96,67 @@ export default function Home() {
       />
       <div
         id="Navheader"
-        className="bg-black/40 z-50  laptop:flex mobile:hidden place-items-center justify-between sticky top-0"
+        className="bg-gradient-to-r from-black/60 via-purple-900/60 to-black/60 backdrop-blur-md z-50 laptop:flex mobile:hidden place-items-center justify-between sticky top-0 border-b border-white/10"
       >
-        <div className="flex space-x-1 p-4 place-items-center">
-          <span>
+        <div className="flex space-x-3 p-4 place-items-center group">
+          <span className="transition-transform duration-300 group-hover:scale-110">
             <Image
               src="https://i.ibb.co/4PbPVhF/Covdffer.png"
               height="60"
               width="60"
+              className="rounded-full shadow-lg shadow-purple-500/20"
             />
           </span>
-          <pre className="text-2xl text-white">Faahem</pre>
+          <pre className="text-2xl bg-gradient-to-r from-blue-400 to-purple-400 text-transparent bg-clip-text font-bold">
+            Fahim
+          </pre>
         </div>
-        <div className="mr-6 space-x-3 flex place-items-center">
-          <Link className="mr-2" href="https://github.com/MehmetFaahem">
+        <div className="mr-6 space-x-4 flex place-items-center">
+          <Link
+            className="transform hover:scale-110 transition-all duration-300"
+            href="https://github.com/MehmetFaahem"
+          >
             <FontAwesomeIcon
               icon={faGithub}
               height="30"
               width="30"
-              color="white"
+              className="text-white hover:text-purple-400 transition-colors duration-300"
             />
           </Link>
-          <Link href="#introduction">
-            <h1 className="font-bold p-4 rounded-xl hover:bg-slate-500/50 text-red-100">
-              Introduction
-            </h1>
-          </Link>
-          <Link href="#skills">
-            <h1 className="font-bold p-4 rounded-xl hover:bg-slate-500/50 text-red-100">
-              Skills
-            </h1>
-          </Link>
-          <Link href="#insp">
-            <h1 className="font-bold p-4 rounded-xl hover:bg-slate-500/50 text-red-100">
-              JS Projects
-            </h1>
-          </Link>
-          <Link href="#mernp">
-            <h1 className="font-bold p-4 rounded-xl hover:bg-slate-500/50 text-red-100">
-              MERN Projects
-            </h1>
-          </Link>
+          {["Introduction", "Skills", "JS Projects", "Full Stack Projects"].map(
+            (item, i) => (
+              <Link key={i} href={`#${item.toLowerCase().replace(" ", "")}`}>
+                <h1 className="font-medium px-4 py-2 rounded-xl hover:bg-white/10 text-blue-200 hover:text-purple-300 transition-all duration-300 border border-transparent hover:border-white/20">
+                  {item}
+                </h1>
+              </Link>
+            )
+          )}
         </div>
       </div>
 
       {visible ? (
         <div
           id="NavheaderForphone"
-          className="bg-white/40 mobile:flex laptop:hidden transition-all duration-500 w-full place-self-center z-50 flex-col place-content-center place-items-center justify-between static top-0"
+          className="backdrop-blur-md bg-gradient-to-r from-black/40 via-purple-900/40 to-black/40 mobile:flex laptop:hidden transition-all duration-500 w-full place-self-center z-50 flex-col place-content-center place-items-center justify-between static top-0 border-b border-white/10"
         >
           <div className="flex justify-between w-full p-4">
-            <Link className="mr-2" href="https://github.com/MehmetFaahem">
+            <Link
+              className="transform hover:scale-110 transition-all duration-300"
+              href="https://github.com/MehmetFaahem"
+            >
               <FontAwesomeIcon
                 icon={faGithub}
                 height="35"
                 width="35"
-                color="white"
+                className="text-white hover:text-purple-400 transition-colors duration-300"
               />
             </Link>
             <Button
               type="primary"
               icon={<MenuOutlined />}
               onClick={showDrawer}
+              className="!bg-white/10 hover:!bg-white/20 border border-white/20"
             />
           </div>
           <Drawer
@@ -164,27 +164,17 @@ export default function Home() {
             placement="right"
             onClose={closeDrawer}
             visible={drawerVisible}
+            className="!bg-gradient-to-b from-slate-900 to-purple-900"
           >
-            <Link href="#introduction">
-              <h1 className="font-bold rounded-3xl p-2 bg-white hover:bg-slate-500/50 text-black">
-                Intro
-              </h1>
-            </Link>
-            <Link href="#skills">
-              <h1 className="font-bold rounded-3xl p-2 bg-white hover:bg-slate-500/50 text-black">
-                Skills
-              </h1>
-            </Link>
-            <Link href="#insp">
-              <h1 className="font-bold rounded-3xl p-2 bg-white hover:bg-slate-500/50 text-black">
-                Projects
-              </h1>
-            </Link>
-            <Link href="#mernp">
-              <h1 className="font-bold rounded-3xl p-2 bg-white hover:bg-slate-500/50 text-black">
-                MERN
-              </h1>
-            </Link>
+            {["Intro", "Skills", "Projects", "Full Stack Projects"].map(
+              (item, i) => (
+                <Link key={i} href={`#${item.toLowerCase().replace(" ", "")}`}>
+                  <h1 className="font-medium my-2 p-3 rounded-xl bg-white/10 hover:bg-white/20 text-blue-200 hover:text-purple-300 transition-all duration-300 border border-white/10">
+                    {item}
+                  </h1>
+                </Link>
+              )
+            )}
           </Drawer>
         </div>
       ) : null}
@@ -193,176 +183,207 @@ export default function Home() {
         style={{
           zIndex: 10,
         }}
-        className="flex mobile:flex-col-reverse laptop:flex-row justify-between place-content-center place-items-center p-16"
+        className="flex mobile:flex-col-reverse laptop:flex-row justify-between place-content-center place-items-center p-16 relative"
       >
-        <div className="mobile:place-items-center laptop:place-items-start flex flex-col">
-          <h1 className="p-2 mobile:mt-[50px] laptop:mt-0 text-blue-900 bg-gradient-to-r from-blue-200 to-cyan-200 mobile:text-[25px] laptop:text-6xl font-fav mobile:text-center laptop:text-left font-bold">
-            Fahim Fahrey
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 via-purple-500/5 to-pink-500/5" />
+        <div className="mobile:place-items-center laptop:place-items-start flex flex-col relative z-10">
+          <h1 className=" mobile:mt-[50px] laptop:mt-0 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 text-transparent bg-clip-text mobile:text-[25px] laptop:text-6xl font-fav mobile:text-center laptop:text-left font-bold animate-gradient">
+            Muhammad Fahim
           </h1>
-          <h1 className="laptop:text-3xl mt-[9px] mobile:text-[13px] text-blue-200 font-fav text-left font-thin">
-            Full Stack Developer (MERN)
+          <h1 className="laptop:text-3xl mt-[9px] mobile:text-[13px] text-blue-200 font-fav text-left font-light">
+            Full Stack Software Engineer
           </h1>
 
           <div className="mt-[60px]">
             <a
-              href="https://drive.google.com/uc?export=download&id=1O8W3FMYkVukmVnm0Rp2dxgiGi7bk7yb4"
+              href="https://drive.google.com/uc?export=download&id=1TbUvuYbsrjaERSibU6PpEpOMAhLBwTNN"
               onClick={TimeOut}
-              className="mobile:p-2 laptop:p-4 z-10 t-[20px] hover:bg-blue-200 bg-white mobile:text-[16px] text-black laptop:text-2xl font-bold"
+              className="mobile:px-4 mobile:py-2 laptop:px-6 laptop:py-3 z-10 relative group overflow-hidden rounded-lg
+                bg-gradient-to-r from-blue-500 to-purple-500 mobile:text-[16px] text-white laptop:text-2xl font-bold
+                transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/25"
             >
-              {saving ? "Downloaded" : downloading}
+              <span className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <span className="relative">
+                {saving ? "Downloaded" : downloading}
+              </span>
             </a>
           </div>
         </div>
-        <div className="relative rounded-full">
+        <div className="relative">
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 rounded-full blur-3xl animate-pulse-slow" />
           <div
-            className="z-30 rounded-full laptop:mt-0 mobile:mt-6 "
+            className="z-30 rounded-full laptop:mt-0 mobile:mt-6 transform hover:scale-105 transition-all duration-500"
             id="imageOfMe"
           >
             <Image
               src={Pic}
               height="400"
               width="400"
-              className="rounded-full shadow-lg shadow-blue-500 outline-1 "
+              className="rounded-full shadow-lg shadow-purple-500/50 ring-2 ring-white/20 hover:ring-purple-500/50 transition-all duration-500"
             />
           </div>
         </div>
       </div>
       <Skills />
       <div
-        className="p-10 flex flex-col place-items-center"
+        className="p-10 flex flex-col place-items-center relative"
         style={{
           zIndex: 30,
         }}
       >
-        <h1 className="text-center font-bold mobile:text-4xl laptop:text-7xl text-white mb-12">
+        <h1 className="text-center font-bold mobile:text-4xl laptop:text-7xl bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 text-transparent bg-clip-text mb-12 animate-pulse">
           Introduction
         </h1>
+
+        <div className="absolute w-full h-full">
+          <div className="animate-pulse-slow absolute top-1/4 left-1/4 w-32 h-32 bg-blue-500/20 rounded-full blur-xl" />
+          <div className="animate-pulse-slow absolute bottom-1/4 right-1/4 w-32 h-32 bg-purple-500/20 rounded-full blur-xl" />
+        </div>
+
         <div
           id="introduction"
-          className="relative flex flex-row items-center overflow-hidden mt-[30px] w-[93%] mobile:h-[auto] laptop:h-[280px] z-40 bg-gradient-to-r from-sky-900 via-rose-900/20 to-slate-900 rounded-2xl p-5"
+          className="relative flex flex-row items-center overflow-hidden mt-[30px] w-[69%] mobile:h-[auto] laptop:h-[280px] z-40 backdrop-blur-lg bg-gradient-to-r from-blue-900/40 via-purple-900/40 to-pink-900/40 rounded-2xl p-8 border border-white/10 hover:border-white/20 transition-all duration-500 group hover:scale-[1.02] shadow-2xl"
         >
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
           <Image
             height={"320"}
             width={"320"}
-            className="absolute mobile:hidden laptop:flex outline-4 outline-double outline-blue-50 rounded-full mobile:top-[-50px] mobile:left-[0px] laptop:top-[-40px] laptop:left-[-45px]"
+            className="absolute mobile:hidden laptop:flex rounded-full mobile:top-[-50px] mobile:left-[0px] laptop:top-[-40px] laptop:left-[-45px] transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6 shadow-2xl ring-2 ring-white/20 group-hover:ring-white/40"
             src={Pic2}
           />
-          <h1 className="text-white text-right laptop:ml-[40%] mobile:bottom-[30px] laptop:bottom-[26%] right-[40px] mobile:w-[100%] laptop:w-[70%] selection:bg-black font-light laptop:text-[20px] mobile:text-[12px] mobile:text-center laptop:text-right">
-            As a dedicated React JS & React Native Developer, I am Fahey,
-            bringing over 2 years of hands-on experience in crafting efficient
-            and scalable solutions. Passionate about staying at the forefront of
-            technology trends, I am committed to delivering high-quality code
-            and innovative solutions to drive project success. Ready to
-            contribute my expertise to dynamic and challenging projects, I
-            thrive in collaborative environments where my skills in React
-            development can make a significant impact.
+
+          <h1 className="text-white/90 group-hover:text-white text-right laptop:ml-[40%] mobile:bottom-[30px] laptop:bottom-[26%] right-[40px] mobile:w-[100%] laptop:w-[70%] selection:bg-purple-900/50 font-light laptop:text-[20px] mobile:text-[12px] mobile:text-center laptop:text-right transition-all duration-500 leading-relaxed">
+            Skilled Full Stack Developer with over 3 Years of experience in
+            building responsive, user-friendly web applications using React,
+            Node.js, and modern CSS frameworks as like TailwindCSS. Strong
+            problem-solving abilities, with a focus on performance optimization,
+            scalability, and clean, maintainable code. Experienced in
+            collaborating with cross-functional teams to deliver high-quality
+            solutions. Passionate about continuous learning and staying up to
+            date with the latest web development trends and technologies.
           </h1>
-          <div
-            id="movingItem2"
-            style={{
-              zIndex: -1,
-            }}
-            className="w-2/3 h-96 hidden absolute bg-pink-900 rounded-full"
-          />
+
+          <div className="absolute -bottom-32 -right-32 w-64 h-64 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-500" />
+          <div className="absolute -top-32 -left-32 w-64 h-64 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-500" />
         </div>
       </div>
       <div
         style={{
           zIndex: 90,
         }}
-        className="m-16"
+        className="relative py-20 px-8"
       >
-        <div id="mernp" className="flex flex-col place-items-center">
-          <h1 className="text-center laptop:w-full laptop:inline-block mobile:flex content-center font-bold mobile:text-4xl laptop:text-7xl text-white mb-6">
-            <h1>MERN Projects</h1>
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-900/20 to-transparent pointer-events-none" />
+
+        <div id="mernp" className="max-w-7xl mx-auto">
+          <h1 className="text-center font-extrabold mobile:text-5xl laptop:text-8xl text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600 mb-16 animate-pulse">
+            Projects
           </h1>
+
           {[
+            {
+              title: "Geno AI",
+              description:
+                "It&apos;s a AI based content generator. You can generate image and articles using this tool. You can generate for blog, or any other purpose.",
+              link: "https://genooai.vercel.app/",
+              image: project_four,
+              gradient: "from-indigo-900/40 via-purple-900/40 to-pink-900/40",
+              justify: "justify-start",
+              textAlign: "laptop:w-1/2 laptop:text-left",
+              hoverTranslate: "hover:-translate-y-[0%]",
+              duration: "duration-[1000ms]",
+              imagePosition: "right-0 top-0 scale-[1.1]",
+            },
             {
               title: "ERP Software",
               description:
-                "This ERP software streamlines business processes by integrating various functions such as accounting, inventory management, and human resources into a single system. It enhances efficiency, accuracy, and productivity by providing real-time data and analytics, enabling informed decision-making and improved overall performance.",
-
+                "This ERP software streamlines business processes by integrating various functions such as accounting, inventory management, and human resources into a single system. ",
               image: project_three,
-              gradient: "from-sky-900/30 to-rose-900/50",
-              justify: "justify-start",
-              textAlign: "laptop:w-1/2 laptop:text-left",
-              hoverTranslate: "hover:-translate-y-[37%]",
-              duration: "duration-[5000ms]",
-              imagePosition: "right-0 top-0",
-            },
-            {
-              title: "Softex Solution",
-              description:
-                "This is a Software Service Provider Agency. People can take services from this site as like schedule a meeting. And anyone can apply for a job from here.",
-              link: "https://softexsolution.com/",
-              image: project_one,
-              gradient: "from-rose-900/50 to-sky-900/30",
+              gradient: "from-pink-900/40 via-purple-900/40 to-indigo-900/40",
               justify: "justify-end",
               textAlign:
                 "laptop:place-items-end laptop:w-[50%] laptop:text-right",
-              hoverTranslate: "hover:-translate-y-[83%]",
-              duration: "duration-[10000ms]",
-              imagePosition: "left-0 top-0",
+              hoverTranslate: "hover:-translate-y-[17%]",
+              duration: "duration-[1000ms]",
+              imagePosition: "left-0 top-0 ",
             },
+
             {
               title: "IMEI Web",
               description:
-                "Using this web tool, you can check your phone's info. Also you can Unlock, Bypass and Remove including IOS or IPhone.",
+                "Using this web tool, you can check your phone&apos;s info. Also you can Unlock, Bypass and Remove including IOS or IPhone.",
               link: "https://www.imeiweb.com/",
               image: project_two,
-              gradient: "from-sky-900/30 to-rose-900/50",
+              gradient: "from-indigo-900/40 via-purple-900/40 to-pink-900/40",
               justify: "justify-start",
               textAlign: "laptop:w-1/2 laptop:text-left",
-              hoverTranslate: "hover:-translate-y-[40%]",
-              duration: "duration-[5000ms]",
-              imagePosition: "right-0 top-0",
+              hoverTranslate: "hover:-translate-y-[10%]",
+              duration: "duration-[1000ms]",
+              imagePosition: "right-0 top-0 ",
             },
           ].map((project, index) => (
-            <div
-              key={index}
-              className={`h-[470px] backdrop-blur-[1px] bg-gradient-to-r ${project.gradient} mt-10 relative overflow-hidden rounded-2xl w-full mobile:p-7 laptop:p-16 flex flex-row ${project.justify} mobile:items-end laptop:items-center`}
-            >
-              <div className={`flex flex-col ${project.textAlign}`}>
-                <h1 className="text-xl laptop:text-6xl text-orange-300 font-bold laptop:mt-0 mobile:mt-[40px]">
-                  {project.title}
-                </h1>
-                <p className="mobile:text-sm text-blue-200 laptop:text-2xl mobile:mt-2 laptop:mt-7">
-                  {project.description}{" "}
-                  {project.link && (
-                    <span>
-                      <a
-                        className="pt-10 mobile:text-sm laptop:text-xl text-orange-200"
-                        href={project.link}
-                      >
-                        Click To Visit
-                      </a>
-                    </span>
-                  )}
-                </p>
-              </div>
+            <div key={index} className="group mb-16 last:mb-0">
+              <div
+                className={`
+                relative overflow-hidden rounded-3xl
+                backdrop-blur-sm bg-gradient-to-r ${project.gradient}
+                border border-white/10 hover:border-white/20
+                transition-all duration-500 ease-out
+                mobile:p-7 laptop:p-16
+                transform hover:scale-[1.02]
+                hover:shadow-2xl hover:shadow-purple-500/20 h-auto
+              `}
+              >
+                <div
+                  className={`flex flex-row ${project.justify} mobile:items-end laptop:items-center min-h-[470px]`}
+                >
+                  <div
+                    className={`flex flex-col ${project.textAlign} relative z-10`}
+                  >
+                    <h1 className="text-xl laptop:text-6xl font-bold laptop:mt-0 mobile:mt-[40px] mb-4">
+                      <span className="bg-clip-text text-transparent bg-gradient-to-r from-orange-300 via-pink-300 to-purple-300">
+                        {project.title}
+                      </span>
+                    </h1>
+                    <p className="mobile:text-sm laptop:text-2xl mobile:mt-2 laptop:mt-7 text-blue-100/90 leading-relaxed">
+                      {project.description}{" "}
+                      {project.link && (
+                        <a
+                          className="w-fit block mt-6 px-6 py-3 bg-white/10 hover:bg-white/20 rounded-lg
+                          text-orange-200 hover:text-orange-100 transition-all duration-300
+                          mobile:text-sm laptop:text-xl "
+                          href={project.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          Visit Project →
+                        </a>
+                      )}
+                    </p>
+                  </div>
 
-              <div
-                style={{
-                  width: "600px",
-                }}
-                className={`laptop:flex mobile:hidden absolute ${project.imagePosition}`}
-              >
-                <Image
-                  src={project.image}
-                  className={`h-full ${project.hoverTranslate} rounded-2xl transition-all ${project.duration} w-[600px] object-cover`}
-                />
-              </div>
-              <div
-                style={{
-                  width: "100%",
-                  marginBottom: "30px",
-                }}
-                className="laptop:hidden h-80 mobile:flex left-0 top-0 absolute"
-              >
-                <Image
-                  src={project.image}
-                  className="h-[300px] shadow-lg rounded-2xl shadow-white transition-all duration-700 w-full object-cover"
-                />
+                  <div
+                    className={`laptop:flex mobile:hidden absolute ${project.imagePosition} w-[600px]`}
+                  >
+                    <Image
+                      src={project.image}
+                      className={`
+                        h-full w-[600px] object-cover rounded-2xl
+                        ${project.hoverTranslate} 
+                        transition-all ${project.duration}
+                        shadow-lg shadow-black/20
+                        group-hover:shadow-xl group-hover:shadow-purple-500/20
+                      `}
+                    />
+                  </div>
+                  <div className="laptop:hidden mobile:flex absolute left-0 top-0 w-full h-80 mb-[30px]">
+                    <Image
+                      src={project.image}
+                      className="h-[300px] w-full object-cover rounded-2xl shadow-lg transition-all duration-700"
+                    />
+                  </div>
+                </div>
               </div>
             </div>
           ))}
@@ -373,18 +394,12 @@ export default function Home() {
           zIndex: 90,
         }}
       >
-        <div id="insp">
+        <div id="insp" className="py-10">
           <h1 className="text-center mt-10 font-bold mobile:text-4xl laptop:text-7xl text-white mb-6">
-            <h1>JS Projects</h1>
+            <h1>JS Project</h1>
           </h1>
 
-          <div className="bg-gradient-to-r from-rose-900/25 to-slate-900 rounded-2xl p-10 m-16">
-            <div className="flex font-bold place-items-center">
-              <h1 className="text-2xl mt-4 mb-4">JavaScript</h1>
-              <h1 className="bg-yellow-400 ml-4 text-black p-3 text-3xl">JS</h1>
-            </div>
-            <NoSSRCompiler />
-          </div>
+          <NoSSRCompiler />
         </div>
       </div>
     </div>
