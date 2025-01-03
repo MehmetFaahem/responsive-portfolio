@@ -1,23 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 
 function Skills() {
   const skillCategories = {
-    Languages: [
+    'Programming Languages': [
       { name: "JavaScript", expertise: "Advanced" },
       { name: "TypeScript", expertise: "Intermediate" },
       { name: "Python", expertise: "Intermediate" },
     ],
-    Frameworks: [
+    'Frameworks I Use': [
       { name: "Next JS (Frontend)", expertise: "Advanced" },
       { name: "Nest JS (Backend)", expertise: "Intermediate" },
     ],
-    Databases: [
+    'Databases I use': [
       { name: "MySQL", expertise: "Intermediate" },
       { name: "PostgreSQL", expertise: "Intermediate" },
       { name: "MongoDB", expertise: "Intermediate" },
     ],
 
-    "CSS Frameworks": [
+    'CSS Frameworks I use': [
       { name: "TailwindCSS", expertise: "Intermediate" },
       { name: "Bootstrap", expertise: "Intermediate" },
       { name: "Material UI", expertise: "Intermediate" },
@@ -25,11 +25,12 @@ function Skills() {
       { name: "MagicUI", expertise: "Intermediate" },
       { name: "ChakraUI", expertise: "Intermediate" },
     ],
-    "State Managers": [
+    'State Managers I use': [
       { name: "Redux Toolkit", expertise: "Intermediate" },
       { name: "Zustand", expertise: "Intermediate" },
     ],
-    Tools: [
+    'Tools I use': [
+      { name: "Docker", expertise: "Intermediate" },
       { name: "Prisma", expertise: "Intermediate" },
       { name: "Git", expertise: "Intermediate" },
       { name: "Postman", expertise: "Intermediate" },
@@ -38,12 +39,26 @@ function Skills() {
       { name: "VS Code", expertise: "Intermediate" },
       { name: "Anaconda", expertise: "Intermediate" },
     ],
-    Technologies: [
+    'Technologies I use': [
       { name: "React JS", expertise: "Advanced" },
       { name: "HTML5", expertise: "Intermediate" },
       { name: "CSS3", expertise: "Intermediate" },
       { name: "Sass (scss)", expertise: "Intermediate" },
     ],
+  };
+
+  const [expandedCategories, setExpandedCategories] = useState(
+    Object.keys(skillCategories).reduce((acc, category, index) => {
+      acc[category] = index < 2; // First two categories expanded by default
+      return acc;
+    }, {})
+  );
+
+  const toggleCategory = (category) => {
+    setExpandedCategories((prev) => ({
+      ...prev,
+      [category]: !prev[category],
+    }));
   };
 
   return (
@@ -60,11 +75,24 @@ function Skills() {
         </h1>
 
         {Object.entries(skillCategories).map(([category, skills]) => (
-          <div key={category} className="mb-12">
-            <h2 className="text-3xl font-bold text-white mb-6 border-b border-white/10 pb-2">
-              {category}
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div key={category} className="mb-6">
+            <button
+              onClick={() => toggleCategory(category)}
+              className="w-full text-left"
+            >
+              <h2 className="text-3xl font-bold text-white mb-6 border-b border-white/10 pb-2 flex items-center justify-between">
+                {category}
+                <span className="text-2xl transition-transform duration-300" style={{
+                  transform: expandedCategories[category] ? 'rotate(180deg)' : 'rotate(0deg)'
+                }}>
+                  ▼
+                </span>
+              </h2>
+            </button>
+            
+            <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 transition-all duration-300 ${
+              expandedCategories[category] ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0 overflow-hidden'
+            }`}>
               {skills.map((data) => (
                 <div
                   key={data.name}

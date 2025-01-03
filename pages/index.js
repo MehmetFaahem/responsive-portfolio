@@ -98,7 +98,7 @@ export default function Home() {
       />
       <div
         id="Navheader"
-        className="bg-gradient-to-r from-black/10 via-purple-900/10 to-black/10 backdrop-blur-md z-50 laptop:flex mobile:hidden place-items-center justify-between sticky top-0 border-b border-white/10"
+        className="w-full bg-gradient-to-r from-black/10 via-purple-900/10 to-black/10 backdrop-blur-md z-[10000] laptop:flex mobile:hidden place-items-center justify-between fixed top-0 border-b border-white/10"
       >
         <div className="flex space-x-3 p-4 place-items-center group">
           <span className="transition-transform duration-300 group-hover:scale-110">
@@ -115,7 +115,7 @@ export default function Home() {
         </div>
         <div className="mr-6 space-x-4 flex place-items-center">
           <Link
-            className="transform hover:scale-110 transition-all duration-300"
+            className="transform hover:scale-110 transition-all duration-300 p-2"
             href="https://github.com/MehmetFaahem"
             target="_blank"
           >
@@ -127,7 +127,7 @@ export default function Home() {
             />
           </Link>
           <Link
-            className="transform hover:scale-110 transition-all duration-300"
+            className="transform hover:scale-110 transition-all duration-300 p-2"
             href="https://www.linkedin.com/in/muhammad-faahem/"
             target="_blank"
           >
@@ -204,9 +204,9 @@ export default function Home() {
               className="absolute top-10 left-6"
               onClick={closeDrawer}
             />
-            {["Intro", "Skills", "Projects", "Fun JS Project"].map(
+            {["Introduction", "Skills", "Projects", "Fun JS Project", "Resume"].map(
               (item, i) => (
-                <Link key={i} href={`#${item.toLowerCase().replace(" ", "")}`}>
+                <Link key={i} href={`#${item.toLowerCase().replace(" ", "")}`} onClick={closeDrawer}>
                   <h1 className="font-medium my-2 p-3 rounded-xl bg-white/10 hover:bg-white/20 text-blue-200 hover:text-purple-300 transition-all duration-300 border border-white/10">
                     {item}
                   </h1>
@@ -221,7 +221,8 @@ export default function Home() {
         style={{
           zIndex: 10,
         }}
-        className="flex mobile:flex-col-reverse laptop:flex-row justify-between place-content-center place-items-center p-16 relative"
+        id="resume"
+        className="flex mobile:flex-col-reverse laptop:flex-row justify-between place-content-center place-items-center p-16 relative mt-20"
       >
         <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 via-purple-500/5 to-pink-500/5" />
         <div className="mobile:place-items-center laptop:place-items-start flex flex-col relative z-10">
@@ -280,7 +281,7 @@ export default function Home() {
         </div>
 
         <div className="relative flex mobile:flex-col laptop:flex-row items-center overflow-hidden mt-[30px] mobile:w-[95%] tablet:w-[85%] laptop:w-[69%] mobile:h-auto laptop:h-auto z-40 backdrop-blur-lg bg-gradient-to-r from-blue-900/40 via-purple-900/40 to-pink-900/40 rounded-2xl p-8 border border-white/10 hover:border-white/20 transition-all duration-500 group hover:scale-[1.02] shadow-2xl">
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+          {/* <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" /> */}
 
           <Image
             height={"320"}
